@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Blog | Zulfiqar Alam - Mobile Development Insights</title>
+    <meta name="title" content="Blog | Zulfiqar Alam - Mobile Development Insights">
+    <meta name="description" content="Read the latest insights on Flutter, React Native, and mobile app development from Zulfiqar Alam. Tutorials, tips, and industry trends for mobile developers.">
+    <meta name="keywords" content="Flutter Blog, React Native Blog, Mobile Development Blog, Zulfiqar Alam Blog, Mobile App Development Tips, Cross-platform Development">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Zulfiqar Alam">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zulfiqaralam18.github.io/blog/">
+    <meta property="og:title" content="Blog | Zulfiqar Alam - Mobile Development Insights">
+    <meta property="og:description" content="Read the latest insights on Flutter, React Native, and mobile app development from Zulfiqar Alam.">
+    <meta property="og:image" content="https://zulfiqaralam18.github.io/images/profile_Pic.jpeg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://zulfiqaralam18.github.io/blog/">
+    <meta property="twitter:title" content="Blog | Zulfiqar Alam - Mobile Development Insights">
+    <meta property="twitter:description" content="Read the latest insights on Flutter, React Native, and mobile app development from Zulfiqar Alam.">
+    <meta property="twitter:image" content="https://zulfiqaralam18.github.io/images/profile_Pic.jpeg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://zulfiqaralam18.github.io/blog/">
+    
+    <!-- External Resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Zulfiqar Alam Mobile Development Blog",
+      "description": "Insights on Flutter, React Native, and mobile app development",
+      "url": "https://zulfiqaralam18.github.io/blog/",
+      "author": {
+        "@type": "Person",
+        "name": "Zulfiqar Alam",
+        "url": "https://zulfiqaralam18.github.io/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Zulfiqar Alam"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="../" class="logo">Zulfiqar Alam</a>
+                <div class="desktop-menu">
+                    <a href="../#about">About</a>
+                    <a href="../#skills">Skills</a>
+                    <a href="../#projects">Projects</a>
+                    <a href="../#blog">Blog</a>
+                    <a href="../#contact">Contact</a>
+                </div>
+                <button class="mobile-menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="../#about">About</a>
+                <a href="../#skills">Skills</a>
+                <a href="../#projects">Projects</a>
+                <a href="../#blog">Blog</a>
+                <a href="../#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="hero blog-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Mobile Development <span class="highlight">Blog</span></h1>
+                    <h2>Insights, Tutorials & Industry Trends</h2>
+                    <p>Discover the latest in Flutter, React Native, and cross-platform mobile development through detailed tutorials and expert insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="blog-section" style="padding-top: 80px;">
+        <div class="container">
+            <div class="blog-filters">
+                <h3>Filter by Category:</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Posts</button>
+                    <button class="filter-btn" data-filter="flutter">Flutter</button>
+                    <button class="filter-btn" data-filter="react-native">React Native</button>
+                    <button class="filter-btn" data-filter="tutorial">Tutorials</button>
+                    <button class="filter-btn" data-filter="tips">Tips & Tricks</button>
+                </div>
+            </div>
+
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be dynamically loaded here -->
+                <div class="blog-placeholder">
+                    <i class="fas fa-blog fa-3x"></i>
+                    <h3>Blog Posts Coming Soon!</h3>
+                    <p>I'm working on creating amazing content about mobile app development. Check back soon for the latest insights and tutorials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Get notified when I publish new articles about mobile development</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Zulfiqar Alam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Blog filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const blogGrid = document.getElementById('blogGrid');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter logic would go here when you have actual blog posts
+                    const filter = this.getAttribute('data-filter');
+                    console.log('Filtering by:', filter);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /index.html
+Allow: /style.css
+Allow: /script.js
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://zulfiqaralam18.github.io/sitemap.xml
+
+# Crawl delay (optional, helps prevent overloading)
+Crawl-delay: 1

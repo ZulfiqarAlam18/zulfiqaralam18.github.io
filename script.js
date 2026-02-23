@@ -107,36 +107,44 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)';
     });
 
-    // Form submission with enhanced UX
+    // Form submission with enhanced UX (actual email sending via FormSubmit)
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+
             const submitBtn = contactForm.querySelector('.btn');
             const originalText = submitBtn.textContent;
-            
+
             // Show loading state
             submitBtn.textContent = 'Sending...';
             submitBtn.style.opacity = '0.7';
             submitBtn.style.pointerEvents = 'none';
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                // Show success message with better UX
-                showNotification('Thank you for your message! I will get back to you soon.', 'success');
-                
-                // Reset form and button
-                contactForm.reset();
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                });
+
+                if (response.ok) {
+                    showNotification('Thank you for your message! I will reply to you at your email.', 'success');
+                    contactForm.reset();
+                } else {
+                    showNotification('Something went wrong. Please try again or email me directly at zulfiqaralam651@gmail.com.', 'info');
+                }
+            } catch (error) {
+                showNotification('Network error. Please check your connection or email me directly at zulfiqaralam651@gmail.com.', 'info');
+            } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.style.opacity = '1';
                 submitBtn.style.pointerEvents = 'auto';
-            }, 2000);
+            }
         });
     }
 

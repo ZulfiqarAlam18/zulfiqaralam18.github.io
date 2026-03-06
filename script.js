@@ -1,4 +1,25 @@
+// ============================================================
+// RESUME CONFIG — To update your resume, change ONLY this block
+// 1. Upload the new PDF file to the root of the project
+// 2. Update `filename` below to match the new file name
+// 3. Optionally update `downloadAs` (the name shown when saving)
+// ============================================================
+const RESUME_CONFIG = {
+    filename:   'Zulfiqar_Flutter_Engineer.pdf', // <-- update this line with new PDF name
+    downloadAs: 'Zulfiqar_Alam_Resume.pdf'       // name used when visitor downloads the file
+};
+// ============================================================
+
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Auto-populate all resume links from RESUME_CONFIG
+    document.querySelectorAll('[data-resume-link]').forEach(function(link) {
+        link.setAttribute('href', RESUME_CONFIG.filename);
+        if (link.hasAttribute('data-resume-download')) {
+            link.setAttribute('download', RESUME_CONFIG.downloadAs);
+        }
+    });
+
     // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');

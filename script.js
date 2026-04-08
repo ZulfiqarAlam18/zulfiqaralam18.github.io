@@ -169,6 +169,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Copy to clipboard buttons
+    const copyButtons = document.querySelectorAll('[data-copy]');
+    copyButtons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const value = button.getAttribute('data-copy');
+            if (!value) {
+                return;
+            }
+
+            try {
+                await navigator.clipboard.writeText(value);
+                showNotification('Copied to clipboard.', 'success');
+            } catch (error) {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = value;
+                tempInput.setAttribute('readonly', '');
+                tempInput.style.position = 'absolute';
+                tempInput.style.left = '-9999px';
+                document.body.appendChild(tempInput);
+                tempInput.select();
+
+                try {
+                    document.execCommand('copy');
+                    showNotification('Copied to clipboard.', 'success');
+                } catch (fallbackError) {
+                    showNotification('Copy failed. Please copy manually.', 'info');
+                }
+
+                document.body.removeChild(tempInput);
+            }
+        });
+    });
+
     // Enhanced notification system
     function showNotification(message, type = 'info') {
         const notification = document.createElement('div');

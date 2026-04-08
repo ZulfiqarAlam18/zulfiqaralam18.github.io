@@ -1386,6 +1386,68 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.contact-item-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.contact-value {
+    color: #b0b0b0;
+    font-weight: 500;
+}
+
+.copy-field {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.copy-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.copy-value {
+    color: #e8e8e8;
+    font-weight: 600;
+}
+
+.copy-btn {
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    background: rgba(16, 185, 129, 0.12);
+    color: #10b981;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(16, 185, 129, 0.25);
+    color: #14b8a6;
+    transform: translateY(-2px);
+}
+
+.copy-btn--small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.copy-field .coffee-value {
+    display: inline-block;
+}
+
 .social-links {
     display: flex;
     gap: 20px;

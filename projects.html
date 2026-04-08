@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Projects | Zulfiqar Alam</title>
+    <meta
+      name="description"
+      content="All projects by Zulfiqar Alam, including mobile apps and full-stack solutions."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Zulfiqar Alam" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Projects | Zulfiqar Alam" />
+    <meta
+      property="og:description"
+      content="Explore all featured and future projects by Zulfiqar Alam."
+    />
+    <meta
+      property="og:url"
+      content="https://zulfiqaralam18.github.io/projects.html"
+    />
+    <meta
+      property="og:image"
+      content="https://zulfiqaralam18.github.io/images/croped.jpeg"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      rel="canonical"
+      href="https://zulfiqaralam18.github.io/projects.html"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-container">
+          <a href="index.html" class="logo">Zulfiqar Alam</a>
+          <div class="desktop-menu">
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="index.html#blog">Blog</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+          <button class="mobile-menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="index.html#about">About</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="index.html#blog">Blog</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="projects-page">
+      <section class="projects-section" itemscope itemtype="https://schema.org/CreativeWork">
+        <div class="container">
+          <h1 class="section-title">All Projects</h1>
+          <p class="section-subtitle">
+            A complete list of my apps, freelance work, and upcoming builds.
+          </p>
+
+          <div class="projects-grid">
+            <article
+              class="project-card"
+              itemscope
+              itemtype="https://schema.org/SoftwareApplication"
+            >
+              <div class="project-image">
+                <img
+                  src="images/lms.jpeg"
+                  alt="Ascender Online learning management system interface"
+                  itemprop="image"
+                />
+              </div>
+              <div class="project-details">
+                <h3 itemprop="name">Ascender Online - LMS Platform</h3>
+                <p itemprop="description">
+                  Freelance project delivering an LMS with a Flutter app and
+                  admin web portal. Students can enroll in courses, mark
+                  attendance, and take quizzes, powered by a Node.js Express
+                  backend on AWS.
+                </p>
+                <div class="project-tech" itemprop="programmingLanguage">
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>ScreenUtil</span>
+                  <span>Node.js Express</span>
+                  <span>AWS Cognito</span>
+                  <span>AWS S3</span>
+                  <span>AWS EC2</span>
+                </div>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.ascenders.online"
+                  class="project-link"
+                  itemprop="url"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >View on Play Store <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article
+              class="project-card"
+              itemscope
+              itemtype="https://schema.org/SoftwareApplication"
+            >
+              <div class="project-image">
+                <img
+                  src="images/app1.webp"
+                  alt="Inforato E-commerce mobile application interface"
+                  itemprop="image"
+                />
+              </div>
+              <div class="project-details">
+                <h3 itemprop="name">
+                  Inforato - E-commerce App with Virtual Try-On
+                </h3>
+                <p itemprop="description">
+                  Advanced e-commerce platform with AR-powered virtual try-on
+                  using FastAPI for ML model serving and Node.js Express for
+                  backend APIs. Integrated PostgreSQL for transactional data,
+                  implemented secure payment gateways, real-time inventory sync,
+                  and optimized image processing pipelines for seamless user
+                  experience.
+                </p>
+                <div class="project-tech" itemprop="programmingLanguage">
+                  <span>Flutter</span>
+                  <span>Node.js Express</span>
+                  <span>FastAPI</span>
+                  <span>PostgreSQL</span>
+                </div>
+                <a href="#" class="project-link" itemprop="url"
+                  >View Details <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article
+              class="project-card"
+              itemscope
+              itemtype="https://schema.org/SoftwareApplication"
+            >
+              <div class="project-image">
+                <img
+                  src="images/productivity.jpg"
+                  alt="Routinely habit tracking application interface"
+                  itemprop="image"
+                />
+              </div>
+              <div class="project-details">
+                <h3 itemprop="name">Routinely - Habit Tracking App</h3>
+                <p itemprop="description">
+                  Lightweight Flutter app built with GetX for reactive state
+                  management and Hive for fast, offline-first local storage.
+                  Implements custom data visualization widgets, background
+                  notification scheduling, and streak algorithms. Optimized for
+                  minimal battery consumption and instant data access.
+                </p>
+                <div class="project-tech" itemprop="programmingLanguage">
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>Hive</span>
+                </div>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.zulfi.routinely"
+                  class="project-link"
+                  itemprop="url"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >View on Play Store <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+
+            <article
+              class="project-card"
+              itemscope
+              itemtype="https://schema.org/SoftwareApplication"
+            >
+              <div class="project-image">
+                <img
+                  src="images/missing_child.jpeg"
+                  alt="LocateLost missing children reunification application interface"
+                  itemprop="image"
+                />
+              </div>
+              <div class="project-details">
+                <h3 itemprop="name">
+                  LocateLost - Smart Solution for Reuniting Missing Children
+                </h3>
+                <p itemprop="description">
+                  Full-stack Flutter application with Node.js Express backend
+                  deployed on AWS EC2. Implements facial recognition algorithms,
+                  Redis caching for high-speed data retrieval, PostgreSQL for
+                  relational data management, and S3 for secure image storage.
+                  Features real-time geolocation tracking and push notifications.
+                </p>
+                <div class="project-tech" itemprop="programmingLanguage">
+                  <span>Flutter</span>
+                  <span>Node.js Express</span>
+                  <span>PostgreSQL</span>
+                  <span>Redis</span>
+                  <span>AWS S3</span>
+                  <span>AWS EC2</span>
+                </div>
+                <a href="#" class="project-link" itemprop="url"
+                  >View Details <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2026 Zulfiqar Alam. All rights reserved.</p>
+          <a href="index.html" class="footer-resume">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

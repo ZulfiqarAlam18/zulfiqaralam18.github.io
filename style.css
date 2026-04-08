@@ -660,6 +660,14 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
+.projects-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 /* Blog Section */
 .blog-section {
     padding: 120px 0;

@@ -3,8 +3,8 @@ Allow: /
 
 # Important pages
 Allow: /index.html
-Allow: /style.css
-Allow: /script.js
+Allow: /assets/css/style.css
+Allow: /assets/js/main.js
 Allow: /images/
 
 # Sitemap location

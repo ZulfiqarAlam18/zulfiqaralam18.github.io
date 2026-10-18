@@ -1,21 +1,16 @@
 {
   "name": "Zulfiqar Alam Portfolio",
-  "short_name": "ZA Portfolio",
-  "description": "Mobile App Developer Portfolio - Flutter & React Native Expert",
+  "short_name": "Zulfiqar Alam",
+  "description": "Portfolio of Zulfiqar Alam, Flutter Mobile Application Engineer",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#334155",
-  "theme_color": "#10b981",
+  "background_color": "#0b0e13",
+  "theme_color": "#0b0e13",
   "icons": [
     {
-      "src": "/images/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/images/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/assets/images/profile/headshot.jpeg",
+      "sizes": "any",
+      "type": "image/jpeg"
     }
   ]
 }

@@ -27,14 +27,14 @@
     />
     <meta
       property="og:image"
-      content="https://zulfiqaralam18.github.io/images/croped.jpeg"
+      content="https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg"
     />
 
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -44,32 +44,41 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" href="images/croped.jpeg" />
-    <link rel="apple-touch-icon" href="images/croped.jpeg" />
+    <link rel="icon" href="assets/images/profile/headshot.jpeg" />
+    <link rel="apple-touch-icon" href="assets/images/profile/headshot.jpeg" />
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <nav class="navbar">
       <div class="container">
         <div class="nav-container">
           <a href="index.html" class="logo">Zulfiqar Alam</a>
           <div class="desktop-menu">
-            <a href="index.html">Home</a>
-            <a href="index.html#projects">Projects</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="index.html#blog">Blog</a>
             <a href="index.html#contact">Contact</a>
+            <a href="assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link=""><i class="fas fa-file-pdf"></i> Resume</a>
           </div>
-          <button class="mobile-menu-toggle" id="menuToggle">
+          <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
             <i class="fas fa-bars"></i>
           </button>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-          <a href="index.html">Home</a>
-          <a href="index.html#projects">Projects</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="index.html#blog">Blog</a>
           <a href="index.html#contact">Contact</a>
+          <a href="assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link=""><i class="fas fa-file-pdf"></i> Resume</a>
         </div>
       </div>
     </nav>
 
-    <main class="coffee-page">
+    <main class="coffee-page" id="main">
       <section class="coffee-hero">
         <div class="container coffee-layout">
           <div class="coffee-content">
@@ -248,7 +257,7 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>&copy; 2026 Zulfiqar Alam. All rights reserved.</p>
+          <p>&copy; <span data-year>2026</span> Zulfiqar Alam</p>
           <a href="index.html" class="footer-resume">
             <i class="fas fa-arrow-left"></i> Back to Portfolio
           </a>
@@ -256,6 +265,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

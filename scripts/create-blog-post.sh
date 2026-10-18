@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Blog Management Script for GitHub Pages
-# Usage: ./create-blog-post.sh "Post Title" "post-slug" "category"
+# Usage (from anywhere): scripts/create-blog-post.sh "Post Title" "post-slug" "category"
 
 # Check if all arguments are provided
 if [ $# -ne 3 ]; then
@@ -9,6 +9,9 @@ if [ $# -ne 3 ]; then
     echo "Example: $0 \"My New Post\" \"my-new-post\" \"flutter\""
     exit 1
 fi
+
+# Work from the repository root so paths like blog/ resolve correctly
+cd "$(dirname "$0")/.." || exit 1
 
 TITLE="$1"
 SLUG="$2"
@@ -40,7 +43,7 @@ cat > "blog/${SLUG}.html" << EOF
     <meta property="og:url" content="https://zulfiqaralam18.github.io/blog/${SLUG}.html">
     <meta property="og:title" content="${TITLE}">
     <meta property="og:description" content="[Add your post description here]">
-    <meta property="og:image" content="https://zulfiqaralam18.github.io/images/blog-default.jpg">
+    <meta property="og:image" content="https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg">
     <meta property="article:author" content="Zulfiqar Alam">
     <meta property="article:published_time" content="${DATETIME}">
     
@@ -49,14 +52,14 @@ cat > "blog/${SLUG}.html" << EOF
     <meta property="twitter:url" content="https://zulfiqaralam18.github.io/blog/${SLUG}.html">
     <meta property="twitter:title" content="${TITLE}">
     <meta property="twitter:description" content="[Add your post description here]">
-    <meta property="twitter:image" content="https://zulfiqaralam18.github.io/images/blog-default.jpg">
+    <meta property="twitter:image" content="https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://zulfiqaralam18.github.io/blog/${SLUG}.html">
     
     <!-- External Resources -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
@@ -67,7 +70,7 @@ cat > "blog/${SLUG}.html" << EOF
       "@type": "BlogPosting",
       "headline": "${TITLE}",
       "description": "[Add your post description here]",
-      "image": "https://zulfiqaralam18.github.io/images/blog-default.jpg",
+      "image": "https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg",
       "author": {
         "@type": "Person",
         "name": "Zulfiqar Alam",
@@ -89,27 +92,39 @@ cat > "blog/${SLUG}.html" << EOF
     </script>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="../" class="logo">Zulfiqar Alam</a>
-                <div class="desktop-menu">
-                    <a href="../#about">About</a>
-                    <a href="../#skills">Skills</a>
-                    <a href="../#projects">Projects</a>
-                    <a href="../#blog">Blog</a>
-                    <a href="../#contact">Contact</a>
-                </div>
-                <button class="mobile-menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+      <div class="container">
+        <div class="nav-container">
+          <a href="../" class="logo">Zulfiqar Alam</a>
+          <div class="desktop-menu">
+            <a href="../#about">About</a>
+            <a href="../#experience">Experience</a>
+            <a href="../#skills">Skills</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../#blog">Blog</a>
+            <a href="../#contact">Contact</a>
+            <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
+          </div>
+          <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="../#about">About</a>
+          <a href="../#experience">Experience</a>
+          <a href="../#skills">Skills</a>
+          <a href="../projects.html">Projects</a>
+          <a href="../#blog">Blog</a>
+          <a href="../#contact">Contact</a>
+          <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Blog Post Content -->
-    <article class="blog-post-content" itemscope itemtype="https://schema.org/BlogPosting">
+    <article class="blog-post-content" id="main" itemscope itemtype="https://schema.org/BlogPosting">
         <header class="blog-post-header">
             <h1 itemprop="headline">${TITLE}</h1>
             
@@ -120,7 +135,7 @@ cat > "blog/${SLUG}.html" << EOF
             </div>
             
             <div class="blog-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <img src="../images/croped.jpeg" alt="Zulfiqar Alam" class="author-avatar">
+                <img src="../assets/images/profile/headshot.jpeg" alt="Zulfiqar Alam" class="author-avatar">
                 <div class="author-info">
                     <span class="author-name" itemprop="name">Zulfiqar Alam</span>
                     <span class="author-title">Mobile App Developer</span>
@@ -153,7 +168,7 @@ cat > "blog/${SLUG}.html" << EOF
         </div>
     </footer>
 
-    <script src="../script.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html>
 EOF

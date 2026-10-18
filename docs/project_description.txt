@@ -1,0 +1,278 @@
+ZULFIQAR ALAM — PORTFOLIO & BLOG WEBSITE
+==========================================
+
+Project description and technical reference for the repository zulfiqaralam18.github.io.
+
+- Live URL: https://zulfiqaralam18.github.io
+- Owner: Zulfiqar Alam (GitHub: ZulfiqarAlam18)
+- Type: Static personal portfolio + technical blog
+- Hosting: GitHub Pages (deployed from the main branch, no build step)
+- Last updated: 18 Oct 2026 (after the profile update and redesign)
+
+------------------------------------------------------------
+
+1. PURPOSE
+----------
+
+The site is the public professional presence of Zulfiqar Alam, a Software Engineer / Flutter Mobile Application Engineer based in Karachi, Pakistan, currently Mobile Application Developer at Sapphire Consulting Service. It is meant to:
+
+- Show recruiters, hiring managers and clients what Zulfiqar has built (Flutter apps, backends on AWS, web tools).
+- Link to the four apps live on Google Play and to detailed write-ups of every project.
+- Provide a downloadable resume.
+- Host technical blog posts on mobile development.
+- Offer a working contact form and a "Buy Me a Coffee" support page.
+- Rank in search results for Zulfiqar's name and Flutter-related keywords (SEO, structured data, Google Search Console, Google Analytics).
+
+Site copy follows the writing rules in user_context.txt: value-focused, concise, no "recent graduate" wording and no AI-sounding buzzwords.
+
+------------------------------------------------------------
+
+2. TECH STACK
+-------------
+
+- HTML5 — hand-written pages, semantic markup, schema.org microdata (itemscope / itemprop).
+- CSS3 — one shared stylesheet (assets/css/style.css) built on CSS custom properties (design tokens in :root): colours, syntax-highlight colours, fonts, radius, easing. Monochrome dark theme: #0b0e13 background, off-white accent (--accent: #e6edf3) with grey secondary tones, and labels styled like grey code comments. The only colour outside the code window is --status: #22c55e, reserved for "live" / "available" signals (avatar dot, live badges, build tick). To re-theme, change --accent, --accent-2, --accent-soft, --accent-line and --status in :root. Grid/Flexbox layouts, breakpoints at 1024 / 860 / 640 px, and a prefers-reduced-motion block that disables animation.
+- Vanilla JavaScript — one shared script (assets/js/main.js), no frameworks, no bundler.
+- Fonts — Google Fonts Inter (text) and JetBrains Mono (code-style labels, logo, tags), imported at the top of the stylesheet.
+- Icons — Font Awesome 6.5.1 from cdnjs on every page.
+- Forms — FormSubmit (formsubmit.co) delivers contact-form messages by email; the script posts to its /ajax/ endpoint.
+- Analytics / SEO — Google Analytics 4 (gtag, ID G-4YV1D6R3HX), Google Search Console verification meta tag, JSON-LD, Open Graph, Twitter Cards, sitemap.xml, robots.txt.
+- PWA metadata — manifest.json.
+- Tooling — a Bash script (scripts/create-blog-post.sh) that generates new blog post HTML from a template.
+- Hosting — GitHub Pages. Push to main and the site updates.
+
+There is no package.json, no dependencies to install and no build step.
+
+------------------------------------------------------------
+
+3. REPOSITORY STRUCTURE
+-----------------------
+
+Page URLs are unchanged from the original site (/, /projects.html, /buy-me-a-coffee.html, /blog/...), so existing links and search rankings keep working. Everything that isn't a page lives in a purpose-named folder.
+
+zulfiqaralam18.github.io/
+├── index.html                  Home page (hero, about, experience, skills, featured projects, background, blog, contact)
+├── projects.html               "All Projects" page — 11 project cards with filters
+├── buy-me-a-coffee.html        Support page (Easypaisa, SadaPay, NayaPay, JazzCash)
+├── 404.html                    Terminal-style "page not found" (GitHub Pages serves it for any missing URL)
+├── blog/
+│   ├── index.html              Blog listing with working category filters
+│   └── flutter-vs-react-native-2025.html   The one published post
+├── assets/
+│   ├── css/style.css           Design tokens (:root) and all styles, shared by every page
+│   ├── js/main.js              All interactions and animations, plus RESUME_CONFIG
+│   ├── images/
+│   │   ├── profile/            headshot.jpeg (hero, favicon, social cards), portrait.jpeg (About)
+│   │   └── projects/           education-lms.jpeg, inforato.webp, scanlite.webp, productivity.jpg,
+│   │                           locatelost.jpeg, cropix.jpeg, ai-assistant.jpeg, privacy-hub.jpeg
+│   └── resume/                 Zulfiqar_Alam-Mobile_App_Engineer.pdf
+├── case-studies/               Long-form project write-ups linked from "Details" buttons
+│   ├── ascender-online.md      ├── imat.md          ├── scanlite.md
+│   ├── routinely.md            ├── locatelost.md    (~1,600 lines, full FYP documentation)
+│   ├── inforato.md             ├── cropix.md        ├── personal-ai-assistant.md
+│   ├── job-form-autofill-helper.md                  ├── privacy-support-hub.md
+│   └── portfolio-website.md    (this site)
+├── docs/
+│   ├── project_description.md  This file
+│   └── project_description.txt Plain-text copy
+├── scripts/
+│   └── create-blog-post.sh     Blog post generator (runs from any folder)
+├── README.md                   Public readme shown on GitHub
+├── manifest.json               Web app manifest
+├── robots.txt                  Crawler rules + sitemap location
+├── sitemap.xml                 XML sitemap
+├── .gitignore                  Ignores .env, user_context.txt, OS and editor files
+├── user_context.txt            Private resume/application notes — source of truth for profile content (git-ignored)
+└── .env                        Local environment file (git-ignored, not used by the site)
+
+------------------------------------------------------------
+
+4. PAGES IN DETAIL
+------------------
+
+4.1 `index.html` — Home
+
+Sections in order. Each has a code-style mono label (// about, // experience …) above its heading, and the IDs are used by the navbar.
+
+1. Navbar — <Zulfiqar Alam /> logo (brackets added by CSS), links to every section, a Resume button, and a hamburger menu under 860 px. The link for the section in view is highlighted.
+2. Hero (#top) — status pill without a dot ("Mobile Application Developer @ Sapphire Consulting Service"; the company part hides on phones and mid-width screens), a large round headshot avatar (assets/images/profile/headshot.jpeg, 152px desktop / 124px phones) with a slowly rotating grey gradient ring and a pulsing green "open to opportunities" dot, the name centred below it (the whole left column is centre-aligned), a terminal-style ~$ line that types through role titles, a one-paragraph pitch, View Projects / Resume buttons, quick facts (location, 4 Play Store apps, GitHub). On the right, an editor window (lib/zulfiqar_alam.dart) types out a Dart class describing the owner, then shows "Build succeeded · 4 apps live". Background: faint grid and a very soft glow.
+3. About (#about) — photo, two paragraphs (current role, freelance background, typical stack), three count-up stats (2+ years, 4 Play Store apps, 11 projects) and key/value facts (location, education, languages).
+4. Experience (#experience) — timeline: Mobile Application Developer at Sapphire Consulting Service (Aug 2026 – present) and Freelance Software Engineer / Flutter Developer (2 years).
+5. Skills (#skills) — six cards, each labelled with a file name: Mobile, State & Architecture, Backend & APIs, Cloud, Databases, Tools & Languages.
+6. Featured Projects (#projects) — the four Play Store apps (Ascender Online, IMAT, ScanLite, Routinely) as code-window cards showing package ID, a "live" badge, description, tech tags, Google Play and Details links. Buttons to projects.html and GitHub.
+7. Education & Leadership (#background) — BE Software Engineering degree from MUET, AWS Cloud Technical Essentials certification, leadership roles.
+8. Blog (#blog) — one row linking to the published post, plus All Posts.
+9. Contact (#contact) — email and phone with copy buttons, location, GitHub / LinkedIn / X links, and a terminal-styled FormSubmit form (--name, --email, --message).
+10. Footer — year (set by JS), Support My Work, Download Resume.
+
+Head contains meta/OG/Twitter tags, canonical URL, manifest, favicon, a Person JSON-LD block (job title, employer, university, credential, skills, social profiles) and the GA4 tag. A tiny inline script adds the js class to <html> before first paint so reveal animations don't flash.
+
+4.2 `projects.html` — All Projects
+
+Same navbar as home. Grid of 11 cards, Play Store apps first: Ascender Online, IMAT, ScanLite, Routinely (all with "live" badge and Google Play link), then LocateLost, Inforato, Cropix, Personal AI Job Assistant, Job Form Autofill Helper, Zulfi Apps Privacy Hub, Portfolio & Blog. Filter tabs (All, Live on Play Store, Mobile, Web, AI / ML) narrow the grid using each card's data-tags, with an $ 4 of 11 projects counter. Each card shows an image, a mono "kind" line (e.g. Solo build · Offline-first), description, tech tags and a Details link to the Markdown write-up.
+
+4.3 `buy-me-a-coffee.html` — Support
+
+Hero with three steps (pick a method → send any amount → share a screenshot), a highlighted Easypaisa card and a list of other wallets (SadaPay, NayaPay, JazzCash), each with a copy button. Restyled through the shared CSS; markup unchanged.
+
+4.4 `blog/index.html` — Blog listing
+
+Short hero (~/blog $ cat .md, "Notes on mobile development"), category filter buttons (All, Flutter, React Native, Tutorials, Tips & Tricks) that show/hide cards by their data-category attribute, one post card, an empty-state message for categories without posts, and a "Want to talk Flutter?" call to action linking to the contact form.
+
+4.5 `blog/flutter-vs-react-native-2025.html` — Blog post
+
+Article comparing Flutter and React Native: performance, development experience, when to choose each, conclusion. Includes BlogPosting structured data. The bottom navigation links back to the blog and to the contact form.
+
+4.6 `404.html` — Not found
+
+A code window showing ~$ open <missing path>, a red "route not found" error, a large 404 and links to Home, Projects and Contact. It uses root-absolute paths (/assets/css/style.css) because GitHub Pages serves it at whatever URL was requested, and it is marked noindex.
+
+4.7 Shared across pages
+
+Every page (except 404) uses the same navbar: About, Experience, Skills, Projects, Blog, Contact and a Resume button. Pages in /blog use data-resume-link="../" so the resume path resolves correctly. Every page has a "Skip to content" link for keyboard users.
+
+------------------------------------------------------------
+
+5. JAVASCRIPT BEHAVIOUR (`ASSETS/JS/MAIN.JS`)
+---------------------------------------------
+
+Shared by every page; every feature checks that its elements exist, so pages without them are unaffected.
+
+- Resume config — RESUME_CONFIG at the top holds filename (assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf) and downloadAs. Every [data-resume-link] gets its href from it; [data-resume-download] also gets the download name.
+- Footer year — fills [data-year] with the current year.
+- Mobile menu — toggles #mobileMenu, swaps the icon, sets aria-expanded, closes when a link is tapped.
+- Navbar — adds .scrolled after 20 px of scroll.
+- Active nav link — IntersectionObserver marks the link of the section in view.
+- Scroll reveal — .reveal elements fade up; children of [data-stagger] fade up one after another. After the entrance the hooks are removed so hover effects behave normally.
+- Scramble headings — [data-scramble] headings decode from random symbols to the real text when revealed.
+- Count-up — [data-count] numbers count from 0 when revealed.
+- Typed role — [data-typed] (JSON array of strings) types and deletes each phrase in a loop.
+- Code editor typing — reads the highlighted code already in #codeTyping, empties it and types it back character by character (indentation is instant, short pause at line ends), line numbers appear as lines are reached, then #codeStatus lights up. Without JS the full code is shown.
+- Scroll progress bar — a thin accent line at the top of every page fills as you scroll.
+- Back to top — a button appears after scrolling most of a screen.
+- Card spotlight — on devices with a mouse, cards get a soft glow that follows the cursor.
+- Project filters — [data-filter-target] bars show/hide cards by data-tags, update the counter and replay a short entrance animation.
+- Code copy buttons — every <pre> in a blog post gets a copy button.
+- Contact form — posts FormData to FormSubmit's /ajax/ endpoint, shows a spinner, then a success or error toast.
+- Copy buttons — [data-copy] copies via the Clipboard API (textarea fallback) and briefly shows "Copied".
+- Toasts — showNotification(message, type) builds the toast with textContent (no HTML injection); styling lives in CSS.
+- Reduced motion — with prefers-reduced-motion, typing, scramble, count-up and reveals are skipped and content shows immediately.
+
+------------------------------------------------------------
+
+6. SEO & DISCOVERABILITY
+------------------------
+
+- Unique <title>, description and canonical URL per page; home title is "Zulfiqar Alam | Flutter Mobile Application Engineer".
+- Open Graph and Twitter Card tags with the profile image.
+- JSON-LD Person on the home page (job title, worksFor Sapphire Consulting Service, alumniOf MUET, AWS credential, skills, location, contact, GitHub / LinkedIn / X); BlogPosting on the post.
+- Microdata on project cards and the blog row.
+- sitemap.xml (lastmod 2026-10-18) lists the home page and its anchors, projects.html, the blog index, the published post and the coffee page.
+- robots.txt allows everything and points to the sitemap.
+- Google Search Console verification meta tag and Google Analytics 4.
+
+------------------------------------------------------------
+
+7. PROJECTS SHOWCASED
+---------------------
+
+Mobile apps (Flutter):
+
+1. Ascender Online — education platform: admissions, protected course video, quizzes with PDF results, campus map, push notifications. Flutter + GetX, Node.js/Express, PostgreSQL, AWS EC2/S3/Cognito, GitHub Actions CI/CD. Live on Play Store (com.ascenders.online).
+2. IMAT — e-learning app with Stripe enrollment, video lessons, quizzes and progress tracking; clean architecture. Flutter + GetX, Dio, Node.js/Express, PostgreSQL, AWS. Live on Play Store (com.imatpro.app).
+3. ScanLite — scanner with ML Kit, filters, OCR (English/Urdu) and FastAPI conversion services. Flutter + Provider + Hive, FastAPI, Tesseract. Live on Play Store (com.zulfi.scanlite).
+4. Routinely — offline-first habit tracker and todo manager with streaks, reminders, charts and CSV/PDF/JSON export. Flutter + GetX + SQLite. Live on Play Store (com.zulfi.routinely).
+5. LocateLost (final-year project, team lead) — missing-children reporting and matching for parents, finders and police. Flutter, Node.js/Express, PostgreSQL, Redis, AWS Cognito, OpenCV.
+6. Inforato — e-commerce app with AI virtual try-on, catalog, cart, checkout and vendor portal. Flutter + GetX, Node.js/Express, PostgreSQL, AWS.
+7. Cropix — crop disease detection from leaf images plus a community feed. Flutter, FastAPI, TensorFlow/Keras, PostgreSQL, AWS.
+
+Web projects:
+
+8. Personal AI Job Assistant — RAG assistant: React web app and Flutter app on a Node.js/Express + PostgreSQL/pgvector backend.
+9. Job Form Autofill Helper — Chrome extension (Manifest V3) that stores a profile locally and autofills job forms.
+10. Zulfi Apps – Privacy & Support Hub — static site for app privacy policies and account-deletion pages.
+11. Portfolio & Blog — this website.
+
+Full details for each are in case-studies/.
+
+------------------------------------------------------------
+
+8. COMMON MAINTENANCE TASKS
+---------------------------
+
+Update profile content
+- Treat user_context.txt as the source of truth. Profile text lives in index.html (hero, about, experience, skills, background, JSON-LD) and projects.html.
+- The hero code window is plain HTML in #codeTyping: one <span class="line"> per line, with tk-key, tk-type, tk-str, tk-num, tk-fn, tk-com, tk-meta spans for colours. Edit it like normal HTML; the typing animation adapts.
+- Typed role phrases are in the data-typed attribute on the hero.
+
+Update the resume
+1. Put the new PDF in the project root.
+2. Change RESUME_CONFIG.filename in assets/js/main.js (and optionally downloadAs).
+3. Also replace the file name in the hrefs in index.html and projects.html, so links work before JS runs.
+
+Add a project
+1. Add an image to assets/images/projects/ and (optionally) a write-up to case-studies/ (kebab-case file name).
+2. Copy an <article class="project-card"> in projects.html. Add <span class="badge-live mono">live</span> inside .project-image if it's on the Play Store.
+3. To feature it on the home page, copy an <article class="feature-card"> in index.html.
+4. Update the "11 projects" count in the About stats and the "All 11 Projects" button.
+
+Write a blog post
+1. Run scripts/create-blog-post.sh "Post Title" "post-slug" "category" from any folder (Git Bash / WSL on Windows).
+2. Fill in description meta tags and the body in blog/post-slug.html.
+3. Add a .blog-card with a matching data-category to blog/index.html, add a .post-row to the home page if you want it featured, add the URL to sitemap.xml.
+4. Commit and push.
+
+Deploy
+- git add, git commit, git push origin main. GitHub Pages publishes within a minute or two.
+
+Run locally
+- Open index.html in a browser, or serve the folder (e.g. npx serve or python -m http.server) so root-relative paths like /manifest.json resolve.
+
+------------------------------------------------------------
+
+9. KNOWN ISSUES AND GAPS (AS OF 18 OCT 2026)
+--------------------------------------------
+
+Fixed in the 18 Oct 2026 update: resume link pointing to the deleted PDF, stray --> in the home <head>, home blog cards linking to non-existent posts and missing images, blog index stuck on "Coming Soon", fake newsletter form, dead "Next Post" link, projects.html missing from the sitemap, Routinely described as using Hive, JSON-LD alumniOf placeholder, missing Resume link on the projects page, cursor trail, broken parallax selector, null-unsafe menu code, innerHTML in toasts, and outdated "graduate" / "expert" wording. Removed unused files: PORTFOLIO.md (duplicate of the portfolio case study), .htaccess (ignored by GitHub Pages) and blog-guide.md (generic advice; the blog workflow is in Section 8). Restructured into assets/, case-studies/, docs/ and scripts/ with descriptive file names; fixed the previously broken image references (profile_Pic.jpeg, blog1.jpg, blog-default.jpg, manifest icons); rewrote README.md and the portfolio case study.
+
+Still open:
+
+- Uncommitted changes. The redesign, the new resume PDF and the deletion of Zulfiqar_Flutter_Engineer.pdf must be committed together, or the live resume links will break.
+- LinkedIn URL needs confirming. The site now uses linkedin.com/in/zulfiqar-alam (from user_context.txt); older versions used /in/zulfiqar-alam-b27a84232.
+- "Details" links open raw .md files, which GitHub Pages serves as plain text, not formatted pages.
+- No square app icon. manifest.json uses the headshot (sizes: any); a square 512×512 PNG would display better when the site is installed as an app.
+- Reused thumbnails: lms.jpeg for both Ascender and IMAT, productivity.jpg for Routinely and the Chrome extension. Several thumbnails are small (under 300 px wide) and look soft.
+- Mobile check is partial. Layout was verified in headless Chrome at 520 px and 1440 px; a check on a real phone (≈390 px) is still worth doing.
+
+------------------------------------------------------------
+
+10. SECURITY & PRIVACY NOTES
+----------------------------
+
+- .gitignore keeps .env, .env. and user_context.txt out of git, along with OS files (Thumbs.db, desktop.ini, .DS_Store) and editor folders (.vscode/, .idea/). Anything committed is public on GitHub Pages, so add any new private file there before running git add ..
+- user_context.txt holds personal resume notes and application rules — private working material, not site content.
+- The phone number, email and wallet numbers on the site are intentionally public.
+- The contact form posts to FormSubmit with _captcha=false, so spam protection is off.
+
+------------------------------------------------------------
+
+11. OWNER PROFILE (CONTEXT FOR THE CONTENT)
+-------------------------------------------
+
+- Name: Zulfiqar Alam — Software Engineer / Flutter Mobile Application Engineer, Karachi, Pakistan.
+- Current role: Mobile Application Developer at Sapphire Consulting Service (Aug 2026 – present); 2 years of freelance Flutter work before that.
+- Education: Bachelor of Engineering (BE) in Software Engineering, Mehran University of Engineering & Technology (MUET), Jamshoro, Nov 2021 – Dec 2025.
+- Core skills: Flutter/Dart, BLoC, GetX, Provider; Node.js/Express, REST APIs, FastAPI, NestJS exposure; PostgreSQL, SQLite, Floor, Hive, MongoDB, Redis; AWS (EC2, S3, Cognito), Firebase, Supabase; Git, GitHub Actions, Appium.
+- Certification: AWS Cloud Technical Essentials (Coursera).
+- Activities: Co-Lead GDSC MUET, President Delta Tech Info, Technical Support Engineer at Elevate Studio, IEEE Student Member.
+- Languages: English, Urdu, Sindhi.
+- Links: GitHub https://github.com/ZulfiqarAlam18 · LinkedIn https://linkedin.com/in/zulfiqar-alam · X https://x.com/ZulfiqarAlam18
+
+------------------------------------------------------------
+
+12. GIT HISTORY SUMMARY
+-----------------------
+
+24 commits on main, starting with "initial commit". In rough order the work covered: footer refactor and UI tweaks → SEO meta tags → blog page → Google Search Console verification → Google Analytics → theme changes → "student" to "graduate" wording → resume added → Person JSON-LD update → Buy Me a Coffee page → projects page → more projects → project-specific images (latest commit 7076a03).
+
+Not yet committed: the 18 Oct 2026 profile update and redesign (index.html, projects.html, 404.html, blog/, buy-me-a-coffee.html, sitemap.xml), the folder restructure (assets/, case-studies/, docs/, scripts/, staged as git renames), the new resume PDF, the rewritten README and these description files.

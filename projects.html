@@ -7,7 +7,7 @@
     <title>Projects | Zulfiqar Alam</title>
     <meta
       name="description"
-      content="All projects by Zulfiqar Alam, including mobile apps and full-stack solutions."
+      content="Flutter apps, backends and web tools built by Zulfiqar Alam, including four apps live on Google Play."
     />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Zulfiqar Alam" />
@@ -16,7 +16,7 @@
     <meta property="og:title" content="Projects | Zulfiqar Alam" />
     <meta
       property="og:description"
-      content="Explore all featured and future projects by Zulfiqar Alam."
+      content="Flutter apps, backends and web tools, including four apps live on Google Play."
     />
     <meta
       property="og:url"
@@ -24,16 +24,21 @@
     />
     <meta
       property="og:image"
-      content="https://zulfiqaralam18.github.io/images/croped.jpeg"
+      content="https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg"
     />
+    <meta name="theme-color" content="#0b0e13" />
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="assets/css/style.css" />
 
     <link
       rel="canonical"
@@ -41,450 +46,541 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" href="images/croped.jpeg" />
-    <link rel="apple-touch-icon" href="images/croped.jpeg" />
+    <link rel="icon" href="assets/images/profile/headshot.jpeg" />
+    <link rel="apple-touch-icon" href="assets/images/profile/headshot.jpeg" />
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <nav class="navbar">
       <div class="container">
         <div class="nav-container">
           <a href="index.html" class="logo">Zulfiqar Alam</a>
           <div class="desktop-menu">
             <a href="index.html#about">About</a>
+            <a href="index.html#experience">Experience</a>
             <a href="index.html#skills">Skills</a>
-            <a href="projects.html">Projects</a>
+            <a href="projects.html" class="active">Projects</a>
             <a href="index.html#blog">Blog</a>
             <a href="index.html#contact">Contact</a>
+            <a
+              href="assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf"
+              target="_blank"
+              class="resume-link"
+              data-resume-link
+              ><i class="fas fa-file-pdf"></i> Resume</a
+            >
           </div>
-          <button class="mobile-menu-toggle" id="menuToggle">
+          <button
+            class="mobile-menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle navigation menu"
+          >
             <i class="fas fa-bars"></i>
           </button>
         </div>
         <div class="mobile-menu" id="mobileMenu">
           <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
           <a href="index.html#skills">Skills</a>
           <a href="projects.html">Projects</a>
           <a href="index.html#blog">Blog</a>
           <a href="index.html#contact">Contact</a>
+          <a
+            href="assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf"
+            target="_blank"
+            class="resume-link"
+            data-resume-link
+            ><i class="fas fa-file-pdf"></i> Resume</a
+          >
         </div>
       </div>
     </nav>
 
-    <main class="projects-page">
-      <section class="projects-section" itemscope itemtype="https://schema.org/CreativeWork">
+    <main class="projects-page" id="main">
+      <section class="projects-section">
         <div class="container">
-          <h1 class="section-title">All Projects</h1>
-          <p class="section-subtitle">
-            A complete list of my apps, freelance work, and upcoming builds.
-          </p>
+          <div class="section-head reveal">
+            <span class="section-label mono">~/projects $ ls -la</span>
+            <h1 class="section-title" data-scramble>All Projects</h1>
+            <p class="section-subtitle">
+              Mobile apps, backends and web tools. Apps marked live are
+              published on Google Play.
+            </p>
+          </div>
 
-          <div class="projects-grid">
+          <div class="filter-row reveal">
+            <div
+              class="filter-buttons"
+              data-filter-target="projectGrid"
+              data-filter-count="projectCount"
+            >
+              <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="filter-btn" type="button" data-filter="live" aria-pressed="false">Live on Play Store</button>
+              <button class="filter-btn" type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
+              <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web</button>
+              <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI / ML</button>
+            </div>
+            <span class="filter-count mono" id="projectCount" aria-live="polite">11 of 11 projects</span>
+          </div>
+
+          <div class="projects-grid" id="projectGrid" data-stagger>
+            <!-- Ascender Online -->
             <article
               class="project-card"
+              data-tags="live mobile"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/lms.jpeg"
-                  alt="Ascender Online learning management system interface"
+                  src="assets/images/projects/education-lms.jpeg"
+                  alt="Ascender Online education app"
                   itemprop="image"
+                  loading="lazy"
                 />
+                <span class="badge-live mono">live</span>
               </div>
               <div class="project-details">
-                <h3 itemprop="name">Ascender Online - LMS Platform</h3>
+                <p class="project-kind mono">Freelance · Mobile + backend</p>
+                <h3 itemprop="name">Ascender Online</h3>
                 <p itemprop="description">
-                  Freelance project delivering an LMS with a Flutter app and
-                  admin web portal. Students can enroll in courses, mark
-                  attendance, and take quizzes, powered by a Node.js Express
-                  backend on AWS.
+                  Education platform covering admissions, courses with protected
+                  video, quizzes with PDF results, a campus map and push
+                  notifications. I handled API integration, notifications, the
+                  Play Store release and GitHub Actions CI/CD, and coordinated
+                  the Flutter and backend developers.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>Flutter</span>
-                  <span>GetX</span>
-                  <span>ScreenUtil</span>
-                  <span>Node.js Express</span>
-                  <span>AWS Cognito</span>
-                  <span>AWS S3</span>
-                  <span>AWS EC2</span>
+                <div class="project-tech">
+                  <span>Flutter</span><span>GetX</span><span>Node.js</span
+                  ><span>PostgreSQL</span><span>AWS</span
+                  ><span>GitHub Actions</span>
                 </div>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.ascenders.online"
-                  class="project-link"
-                  itemprop="url"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >View on Play Store <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.ascenders.online"
+                    class="project-link"
+                    itemprop="url"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    ><i class="fab fa-google-play"></i> Google Play</a
+                  >
+                  <a
+                    href="case-studies/ascender-online.md"
+                    class="project-link"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- IMAT -->
             <article
               class="project-card"
+              data-tags="live mobile"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/app1.webp"
-                  alt="Inforato E-commerce mobile application interface"
+                  src="assets/images/projects/education-lms.jpeg"
+                  alt="IMAT e-learning app"
                   itemprop="image"
+                  loading="lazy"
                 />
+                <span class="badge-live mono">live</span>
               </div>
               <div class="project-details">
-                <h3 itemprop="name">
-                  Inforato - E-commerce App with Virtual Try-On
-                </h3>
+                <p class="project-kind mono">Freelance · Flutter lead</p>
+                <h3 itemprop="name">IMAT — E-learning App</h3>
                 <p itemprop="description">
-                  Advanced e-commerce platform with AR-powered virtual try-on
-                  using FastAPI for ML model serving and Node.js Express for
-                  backend APIs. Integrated PostgreSQL for transactional data,
-                  implemented secure payment gateways, real-time inventory sync,
-                  and optimized image processing pipelines for seamless user
-                  experience.
+                  Course discovery, paid enrollment through Stripe, video
+                  lessons, quizzes and progress tracking, built in clean
+                  architecture layers. I led the Flutter side: UI, GetX state,
+                  REST integration, Stripe payments and the Play Store release.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>Flutter</span>
-                  <span>Node.js Express</span>
-                  <span>FastAPI</span>
-                  <span>PostgreSQL</span>
+                <div class="project-tech">
+                  <span>Flutter</span><span>GetX</span><span>Dio</span
+                  ><span>Stripe</span><span>Node.js</span
+                  ><span>PostgreSQL</span><span>AWS</span>
                 </div>
-                <a
-                  href="my_projects/app_projects/inforato_description.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.imatpro.app"
+                    class="project-link"
+                    itemprop="url"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    ><i class="fab fa-google-play"></i> Google Play</a
+                  >
+                  <a
+                    href="case-studies/imat.md"
+                    class="project-link"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- ScanLite -->
             <article
               class="project-card"
+              data-tags="live mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/productivity.jpg"
-                  alt="Routinely habit tracking application interface"
+                  src="assets/images/projects/scanlite.webp"
+                  alt="ScanLite document scanner app"
                   itemprop="image"
+                  loading="lazy"
                 />
+                <span class="badge-live mono">live</span>
               </div>
               <div class="project-details">
-                <h3 itemprop="name">Routinely - Habit Tracking App</h3>
+                <p class="project-kind mono">Solo build · Flutter + FastAPI</p>
+                <h3 itemprop="name">ScanLite — Scanner, OCR &amp; Converter</h3>
                 <p itemprop="description">
-                  Lightweight Flutter app built with GetX for reactive state
-                  management and Hive for fast, offline-first local storage.
-                  Implements custom data visualization widgets, background
-                  notification scheduling, and streak algorithms. Optimized for
-                  minimal battery consumption and instant data access.
+                  Multi-page scanning with ML Kit, image filters, PDF output,
+                  OCR in English and Urdu, and a FastAPI service for
+                  Office-to-PDF, PDF-to-Word/Excel/PPT and merging.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>Flutter</span>
-                  <span>GetX</span>
-                  <span>Hive</span>
+                <div class="project-tech">
+                  <span>Flutter</span><span>Provider</span><span>Hive</span
+                  ><span>ML Kit</span><span>FastAPI</span
+                  ><span>Tesseract</span>
                 </div>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.zulfi.routinely"
-                  class="project-link"
-                  itemprop="url"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  >View on Play Store <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.zulfi.scanlite"
+                    class="project-link"
+                    itemprop="url"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    ><i class="fab fa-google-play"></i> Google Play</a
+                  >
+                  <a
+                    href="case-studies/scanlite.md"
+                    class="project-link"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- Routinely -->
             <article
               class="project-card"
+              data-tags="live mobile"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/missing_child.jpeg"
-                  alt="LocateLost missing children reunification application interface"
+                  src="assets/images/projects/productivity.jpg"
+                  alt="Routinely habit tracker app"
                   itemprop="image"
+                  loading="lazy"
                 />
+                <span class="badge-live mono">live</span>
               </div>
               <div class="project-details">
-                <h3 itemprop="name">
-                  LocateLost - Smart Solution for Reuniting Missing Children
-                </h3>
+                <p class="project-kind mono">Solo build · Offline-first</p>
+                <h3 itemprop="name">Routinely — Habits &amp; Todos</h3>
                 <p itemprop="description">
-                  Full-stack Flutter application with Node.js Express backend
-                  deployed on AWS EC2. Implements facial recognition algorithms,
-                  Redis caching for high-speed data retrieval, PostgreSQL for
-                  relational data management, and S3 for secure image storage.
-                  Features real-time geolocation tracking and push notifications.
+                  Habit cycles (weekly/monthly), streaks, achievements and a
+                  todo manager with priorities and reminders. Includes charts,
+                  CSV/PDF export and JSON backup and restore.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>Flutter</span>
-                  <span>Node.js Express</span>
-                  <span>PostgreSQL</span>
-                  <span>Redis</span>
-                  <span>AWS S3</span>
-                  <span>AWS EC2</span>
+                <div class="project-tech">
+                  <span>Flutter</span><span>GetX</span><span>SQLite</span
+                  ><span>Local Notifications</span><span>fl_chart</span>
                 </div>
-                <a
-                  href="my_projects/app_projects/locateLost_fyp.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.zulfi.routinely"
+                    class="project-link"
+                    itemprop="url"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    ><i class="fab fa-google-play"></i> Google Play</a
+                  >
+                  <a
+                    href="case-studies/routinely.md"
+                    class="project-link"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- LocateLost -->
             <article
               class="project-card"
+              data-tags="mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/cropix.jpeg"
-                  alt="Cropix crop disease detection and community mobile app"
+                  src="assets/images/projects/locatelost.jpeg"
+                  alt="LocateLost missing children reunification app"
                   itemprop="image"
+                  loading="lazy"
                 />
               </div>
               <div class="project-details">
-                <h3 itemprop="name">Cropix - Crop Disease Detection Platform</h3>
+                <p class="project-kind mono">Final year project · Team lead</p>
+                <h3 itemprop="name">LocateLost — Missing Children Platform</h3>
                 <p itemprop="description">
-                  Collaborative mobile-first platform for crop disease detection
-                  from leaf images, with confidence scoring, treatment
-                  recommendations, and a community feed (posts, comments, likes).
+                  Multi-role platform for parents, finders and police to report
+                  cases, upload images and track status, with an OpenCV
+                  face-matching pipeline behind the API. I built the Flutter UI
+                  and state management and led the team.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>Flutter</span>
-                  <span>GetX</span>
-                  <span>FastAPI</span>
-                  <span>TensorFlow</span>
-                  <span>PostgreSQL</span>
-                  <span>AWS S3</span>
-                  <span>AWS Cognito</span>
+                <div class="project-tech">
+                  <span>Flutter</span><span>GetX</span><span>Node.js</span
+                  ><span>PostgreSQL</span><span>Redis</span
+                  ><span>AWS Cognito</span><span>OpenCV</span>
                 </div>
-                <a
-                  href="my_projects/app_projects/Cropix_DESCRIPTION.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="case-studies/locatelost.md"
+                    class="project-link"
+                    itemprop="url"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- Inforato -->
             <article
               class="project-card"
+              data-tags="mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/scan.webp"
-                  alt="ScanLite document scanning and OCR application"
+                  src="assets/images/projects/inforato.webp"
+                  alt="Inforato e-commerce app"
                   itemprop="image"
+                  loading="lazy"
                 />
               </div>
               <div class="project-details">
-                <h3 itemprop="name">ScanLite - Document Scanner & Converter</h3>
+                <p class="project-kind mono">E-commerce · Flutter lead</p>
+                <h3 itemprop="name">Inforato — E-commerce with AI Try-On</h3>
                 <p itemprop="description">
-                  Cross-platform document scanning app with OCR, filters, PDF
-                  generation, and file conversion services via a FastAPI backend.
-                  Supports English and Urdu workflows and offline local storage.
+                  Shopping app with an AI virtual fitting room, catalog, cart,
+                  wishlist, checkout and a vendor portal. I built the Flutter
+                  UI, integrated the APIs and deployed the backend on EC2.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>Flutter</span>
-                  <span>Provider</span>
-                  <span>Hive</span>
-                  <span>Google ML Kit</span>
-                  <span>FastAPI</span>
-                  <span>OCR</span>
+                <div class="project-tech">
+                  <span>Flutter</span><span>GetX</span><span>Node.js</span
+                  ><span>PostgreSQL</span><span>AWS</span>
                 </div>
-                <a
-                  href="my_projects/app_projects/SCANLITE_PROJECT_DESCRIPTION.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="case-studies/inforato.md"
+                    class="project-link"
+                    itemprop="url"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- Cropix -->
             <article
               class="project-card"
+              data-tags="mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/lms.jpeg"
-                  alt="IMAT e-learning mobile application"
+                  src="assets/images/projects/cropix.jpeg"
+                  alt="Cropix crop disease detection app"
                   itemprop="image"
+                  loading="lazy"
                 />
               </div>
               <div class="project-details">
-                <h3 itemprop="name">IMAT - E-learning Mobile App</h3>
+                <p class="project-kind mono">Collaborative · AI integration</p>
+                <h3 itemprop="name">Cropix — Crop Disease Detection</h3>
                 <p itemprop="description">
-                  E-learning platform where users browse and purchase courses,
-                  watch lessons, track progress, and take interactive quizzes,
-                  backed by a Node.js/Express API and PostgreSQL.
+                  Leaf-image disease prediction with confidence scores and
+                  treatment advice, plus a community feed. The app posts images
+                  to a FastAPI endpoint running a TensorFlow model. I built the
+                  Flutter UI and deployed the backend on EC2.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>Flutter</span>
-                  <span>GetX</span>
-                  <span>Dio</span>
-                  <span>Node.js Express</span>
-                  <span>PostgreSQL</span>
-                  <span>AWS S3</span>
-                  <span>AWS Cognito</span>
+                <div class="project-tech">
+                  <span>Flutter</span><span>GetX</span><span>FastAPI</span
+                  ><span>TensorFlow</span><span>PostgreSQL</span
+                  ><span>AWS</span>
                 </div>
-                <a
-                  href="my_projects/app_projects/imat_description.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="case-studies/cropix.md"
+                    class="project-link"
+                    itemprop="url"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- Personal AI Agent -->
             <article
               class="project-card"
+              data-tags="web mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/productivity.jpg"
-                  alt="Job Form Autofill Helper browser extension"
+                  src="assets/images/projects/ai-assistant.jpeg"
+                  alt="Personal AI job assistant"
                   itemprop="image"
+                  loading="lazy"
                 />
               </div>
               <div class="project-details">
-                <h3 itemprop="name">Job Form Autofill Helper (Chrome Extension)</h3>
+                <p class="project-kind mono">Web + mobile · RAG</p>
+                <h3 itemprop="name">Personal AI Job Assistant</h3>
                 <p itemprop="description">
-                  Privacy-first browser extension that stores user profile data
-                  locally and intelligently autofills job applications and forms
-                  using content-script heuristics.
+                  Assistant that stores personal context as embeddings, retrieves
+                  the relevant parts with vector search and generates consistent
+                  answers. React web app and Flutter app share one backend.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>JavaScript</span>
-                  <span>HTML</span>
-                  <span>CSS</span>
-                  <span>Chrome Extension</span>
-                  <span>Manifest V3</span>
-                  <span>chrome.storage</span>
+                <div class="project-tech">
+                  <span>Flutter</span><span>React</span><span>Node.js</span
+                  ><span>PostgreSQL</span><span>pgvector</span><span>RAG</span>
                 </div>
-                <a
-                  href="my_projects/web_projects/Job_Form_Autofill_Helper_Description.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="case-studies/personal-ai-assistant.md"
+                    class="project-link"
+                    itemprop="url"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- Job Form Autofill -->
             <article
               class="project-card"
+              data-tags="web"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/ai.jpeg"
-                  alt="Personal AI Agent context-aware assistant"
+                  src="assets/images/projects/productivity.jpg"
+                  alt="Job Form Autofill Helper extension"
                   itemprop="image"
+                  loading="lazy"
                 />
               </div>
               <div class="project-details">
-                <h3 itemprop="name">Personal AI Agent (RAG)</h3>
+                <p class="project-kind mono">Chrome extension · Manifest V3</p>
+                <h3 itemprop="name">Job Form Autofill Helper</h3>
                 <p itemprop="description">
-                  Context-aware AI assistant using a Retrieval-Augmented
-                  Generation (RAG) architecture to retrieve relevant personal
-                  data and generate consistent, tailored responses.
+                  Stores a profile locally and fills job forms by matching
+                  labels, placeholders, IDs and ARIA hints. Inline suggestions,
+                  keyboard shortcuts and one-command full-page fill.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>React</span>
-                  <span>Node.js</span>
-                  <span>PostgreSQL</span>
-                  <span>pgvector</span>
-                  <span>RAG</span>
-                  <span>Tailwind</span>
+                <div class="project-tech">
+                  <span>JavaScript</span><span>Chrome APIs</span
+                  ><span>Manifest V3</span><span>chrome.storage</span>
                 </div>
-                <a
-                  href="my_projects/web_projects/Personal_Ai_Assistant.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="case-studies/job-form-autofill-helper.md"
+                    class="project-link"
+                    itemprop="url"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
 
+            <!-- Privacy hub -->
             <article
               class="project-card"
+              data-tags="web"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
               <div class="project-image">
                 <img
-                  src="images/croped.jpeg"
-                  alt="Zulfiqar Alam portfolio and blog website"
-                  itemprop="image"
-                />
-              </div>
-              <div class="project-details">
-                <h3 itemprop="name">Portfolio & Blog (GitHub Pages)</h3>
-                <p itemprop="description">
-                  Modern, responsive portfolio and technical blog built with
-                  HTML/CSS/JavaScript, optimized for SEO and hosted on GitHub
-                  Pages with PWA-ready metadata.
-                </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>HTML</span>
-                  <span>CSS</span>
-                  <span>JavaScript</span>
-                  <span>SEO</span>
-                  <span>PWA</span>
-                  <span>GitHub Pages</span>
-                </div>
-                <a
-                  href="my_projects/web_projects/PORTFOLIO_project.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-            </article>
-
-            <article
-              class="project-card"
-              itemscope
-              itemtype="https://schema.org/SoftwareApplication"
-            >
-              <div class="project-image">
-                <img
-                  src="images/privacy.jpeg"
+                  src="assets/images/projects/privacy-hub.jpeg"
                   alt="Zulfi Apps privacy and support hub"
                   itemprop="image"
+                  loading="lazy"
                 />
               </div>
               <div class="project-details">
-                <h3 itemprop="name">Zulfi Apps - Privacy & Support Hub</h3>
+                <p class="project-kind mono">Static site · Compliance</p>
+                <h3 itemprop="name">Zulfi Apps — Privacy &amp; Support Hub</h3>
                 <p itemprop="description">
-                  Centralized privacy and support documentation hub for multiple
-                  apps, hosting privacy policies, data deletion instructions, and
-                  support resources on GitHub Pages.
+                  One place for the privacy policies, account deletion pages and
+                  support docs of my Play Store apps, with a folder per app.
                 </p>
-                <div class="project-tech" itemprop="programmingLanguage">
-                  <span>HTML</span>
-                  <span>CSS</span>
-                  <span>JavaScript</span>
-                  <span>GitHub Pages</span>
-                  <span>Compliance</span>
+                <div class="project-tech">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span
+                  ><span>GitHub Pages</span>
                 </div>
-                <a
-                  href="my_projects/web_projects/Zulfi%20Apps%20%E2%80%93%20Privacy%20%26%20Support%20Hub.md"
-                  class="project-link"
-                  itemprop="url"
-                  >View Details <i class="fas fa-arrow-right"></i
-                ></a>
+                <div class="project-links">
+                  <a
+                    href="case-studies/privacy-support-hub.md"
+                    class="project-link"
+                    itemprop="url"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Portfolio -->
+            <article
+              class="project-card"
+              data-tags="web"
+              itemscope
+              itemtype="https://schema.org/SoftwareApplication"
+            >
+              <div class="project-image">
+                <img
+                  src="assets/images/profile/headshot.jpeg"
+                  alt="Zulfiqar Alam portfolio website"
+                  itemprop="image"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-details">
+                <p class="project-kind mono">Static site · This website</p>
+                <h3 itemprop="name">Portfolio &amp; Blog</h3>
+                <p itemprop="description">
+                  This site. Hand-written HTML, CSS and vanilla JS with JSON-LD,
+                  Open Graph, a sitemap and a Bash script for new blog posts,
+                  hosted on GitHub Pages.
+                </p>
+                <div class="project-tech">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span
+                  ><span>SEO</span><span>GitHub Pages</span>
+                </div>
+                <div class="project-links">
+                  <a
+                    href="case-studies/portfolio-website.md"
+                    class="project-link"
+                    itemprop="url"
+                    >Details <i class="fas fa-arrow-right"></i
+                  ></a>
+                </div>
               </div>
             </article>
           </div>
@@ -495,14 +591,19 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <p>&copy; 2026 Zulfiqar Alam. All rights reserved.</p>
-          <a href="index.html" class="footer-resume">
-            <i class="fas fa-arrow-left"></i> Back to Portfolio
-          </a>
+          <p>&copy; <span data-year>2026</span> Zulfiqar Alam</p>
+          <div class="footer-links">
+            <a href="index.html" class="footer-resume">
+              <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            <a href="buy-me-a-coffee.html" class="footer-resume">
+              <i class="fas fa-mug-hot"></i> Support My Work
+            </a>
+          </div>
         </div>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>

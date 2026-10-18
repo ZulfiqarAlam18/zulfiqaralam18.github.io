@@ -17,21 +17,21 @@
     <meta property="og:url" content="https://zulfiqaralam18.github.io/blog/">
     <meta property="og:title" content="Blog | Zulfiqar Alam - Mobile Development Insights">
     <meta property="og:description" content="Read the latest insights on Flutter, React Native, and mobile app development from Zulfiqar Alam.">
-    <meta property="og:image" content="https://zulfiqaralam18.github.io/images/profile_Pic.jpeg">
+    <meta property="og:image" content="https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://zulfiqaralam18.github.io/blog/">
     <meta property="twitter:title" content="Blog | Zulfiqar Alam - Mobile Development Insights">
     <meta property="twitter:description" content="Read the latest insights on Flutter, React Native, and mobile app development from Zulfiqar Alam.">
-    <meta property="twitter:image" content="https://zulfiqaralam18.github.io/images/profile_Pic.jpeg">
+    <meta property="twitter:image" content="https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://zulfiqaralam18.github.io/blog/">
     
     <!-- External Resources -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
@@ -56,40 +56,45 @@
     </script>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-container">
-                <a href="../" class="logo">Zulfiqar Alam</a>
-                <div class="desktop-menu">
-                    <a href="../#about">About</a>
-                    <a href="../#skills">Skills</a>
-                    <a href="../#projects">Projects</a>
-                    <a href="../#blog">Blog</a>
-                    <a href="../#contact">Contact</a>
-                </div>
-                <button class="mobile-menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-            <div class="mobile-menu" id="mobileMenu">
-                <a href="../#about">About</a>
-                <a href="../#skills">Skills</a>
-                <a href="../#projects">Projects</a>
-                <a href="../#blog">Blog</a>
-                <a href="../#contact">Contact</a>
-            </div>
+      <div class="container">
+        <div class="nav-container">
+          <a href="../" class="logo">Zulfiqar Alam</a>
+          <div class="desktop-menu">
+            <a href="../#about">About</a>
+            <a href="../#experience">Experience</a>
+            <a href="../#skills">Skills</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../#blog">Blog</a>
+            <a href="../#contact">Contact</a>
+            <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
+          </div>
+          <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="../#about">About</a>
+          <a href="../#experience">Experience</a>
+          <a href="../#skills">Skills</a>
+          <a href="../projects.html">Projects</a>
+          <a href="../#blog">Blog</a>
+          <a href="../#contact">Contact</a>
+          <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
+        </div>
+      </div>
     </nav>
 
     <!-- Blog Hero Section -->
-    <section class="hero blog-hero">
+    <section class="hero blog-hero" id="main">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Mobile Development <span class="highlight">Blog</span></h1>
-                    <h2>Insights, Tutorials & Industry Trends</h2>
-                    <p>Discover the latest in Flutter, React Native, and cross-platform mobile development through detailed tutorials and expert insights.</p>
+                    <span class="section-label mono">~/blog $ cat *.md</span>
+                    <h1>Notes on <span class="highlight">mobile development</span></h1>
+                    <p>What I learn while building Flutter apps: framework comparisons, architecture decisions and lessons from shipping to the Play Store.</p>
                 </div>
             </div>
         </div>
@@ -110,11 +115,26 @@
             </div>
 
             <div class="blog-grid" id="blogGrid">
-                <!-- Blog posts will be dynamically loaded here -->
-                <div class="blog-placeholder">
-                    <i class="fas fa-blog fa-3x"></i>
-                    <h3>Blog Posts Coming Soon!</h3>
-                    <p>I'm working on creating amazing content about mobile app development. Check back soon for the latest insights and tutorials.</p>
+                <article class="blog-card" data-category="flutter react-native" itemscope itemtype="https://schema.org/BlogPosting">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Mobile Development</span>
+                            <span class="blog-reading-time">5 min read</span>
+                        </div>
+                        <h3 itemprop="headline"><a href="flutter-vs-react-native-2025.html" itemprop="url">Flutter vs React Native: Complete Comparison 2025</a></h3>
+                        <p itemprop="description">Performance, developer experience and when to pick each framework for your next cross-platform app.</p>
+                        <div class="blog-author">
+                            <img src="../assets/images/profile/headshot.jpeg" alt="Zulfiqar Alam" class="author-avatar">
+                            <div class="author-info">
+                                <span class="author-name" itemprop="author">Zulfiqar Alam</span>
+                                <time class="publish-date" itemprop="datePublished" datetime="2025-07-15">July 15, 2025</time>
+                            </div>
+                        </div>
+                        <a href="flutter-vs-react-native-2025.html" class="blog-read-more">Read post <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <div class="blog-placeholder" id="blogEmpty" hidden>
+                    <h3>No posts in this category yet.</h3>
                 </div>
             </div>
         </div>
@@ -124,12 +144,9 @@
     <section class="newsletter-section">
         <div class="container">
             <div class="newsletter-content">
-                <h2>Stay Updated</h2>
-                <p>Get notified when I publish new articles about mobile development</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" required>
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
+                <h2>Want to talk Flutter?</h2>
+                <p>Questions about a post, or a project you'd like help with? Send me a message.</p>
+                <a href="../#contact" class="btn">Get In Touch</a>
             </div>
         </div>
     </section>
@@ -137,11 +154,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Zulfiqar Alam. All rights reserved.</p>
+            <p>&copy; 2026 Zulfiqar Alam</p>
         </div>
     </footer>
 
-    <script src="../script.js"></script>
+    <script src="../assets/js/main.js"></script>
     <script>
         // Blog filtering functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -154,9 +171,14 @@
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Filter logic would go here when you have actual blog posts
                     const filter = this.getAttribute('data-filter');
-                    console.log('Filtering by:', filter);
+                    let shown = 0;
+                    blogGrid.querySelectorAll('.blog-card').forEach(card => {
+                        const match = filter === 'all' || (card.dataset.category || '').split(' ').includes(filter);
+                        card.hidden = !match;
+                        if (match) shown++;
+                    });
+                    document.getElementById('blogEmpty').hidden = shown > 0;
                 });
             });
         });

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | Zulfiqar Alam</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#0b0e13" />
+
+    <!-- Absolute paths: this page is served for any missing URL, at any depth -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="icon" href="/assets/images/profile/headshot.jpeg" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-container">
+          <a href="/" class="logo">Zulfiqar Alam</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="notfound" id="main">
+      <div class="container">
+        <div class="code-window">
+          <div class="code-titlebar">
+            <span class="window-dots"><i></i><i></i><i></i></span>
+            <span class="code-filename mono">zsh — router</span>
+          </div>
+          <div class="notfound-body mono">
+            <div>
+              <span class="prompt">~$</span> open
+              <span id="missingPath">this-page</span>
+            </div>
+            <div class="err">Error: route not found (exit code 404)</div>
+            <div class="notfound-code">404</div>
+            <div>
+              The page you're looking for doesn't exist or was moved.
+            </div>
+            <div class="notfound-actions">
+              <a href="/" class="btn"><i class="fas fa-house"></i> Home</a>
+              <a href="/projects.html" class="btn-outline">Projects</a>
+              <a href="/#contact" class="btn-outline">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.getElementById("missingPath").textContent =
+        window.location.pathname || "/";
+    </script>
+  </body>
+</html>

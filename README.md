@@ -1,40 +1,72 @@
-# Zulfiqar Alam - Mobile App Developer
+# zulfiqaralam18.github.io
 
-Welcome to my portfolio! I'm a passionate mobile app developer specializing in Flutter and React Native development.
+Portfolio and blog of **Zulfiqar Alam**, Software Engineer and Flutter Mobile Application Engineer.
 
-## About This Project
+**Live site:** https://zulfiqaralam18.github.io
 
-This portfolio showcases my skills and projects in mobile app development. Built with modern web technologies and optimized for search engines.
+A static site built with HTML, CSS and vanilla JavaScript, with no frameworks and no build step, hosted on GitHub Pages.
 
-## Key Features
+## Project structure
 
-- **Responsive Design**: Works perfectly on all devices
-- **Modern UI/UX**: Clean, professional interface
-- **SEO Optimized**: Structured data and meta tags for better search visibility
-- **Performance Optimized**: Fast loading times and smooth animations
+```
+.
+├── index.html                 Home: hero, about, experience, skills, projects, contact
+├── projects.html              All projects, with filters
+├── buy-me-a-coffee.html       Support page
+├── 404.html                   Not-found page (served by GitHub Pages)
+├── blog/
+│   ├── index.html             Blog listing
+│   └── *.html                 Posts
+├── assets/
+│   ├── css/style.css          Design tokens (:root) and all styles
+│   ├── js/main.js             Interactions, animations, resume config
+│   ├── images/
+│   │   ├── profile/           Headshot and portrait
+│   │   └── projects/          Project thumbnails
+│   └── resume/                Resume PDF
+├── case-studies/              Detailed project write-ups (Markdown)
+├── docs/                      Maintainer documentation
+├── scripts/
+│   └── create-blog-post.sh    Generates a new blog post from a template
+├── manifest.json              Web app manifest
+├── robots.txt
+└── sitemap.xml
+```
 
-## Technologies Used
+## Run locally
 
-- HTML5, CSS3, JavaScript
-- Modern CSS Grid and Flexbox
-- Font Awesome Icons
-- Google Fonts
-- Structured Data (JSON-LD)
+Any static server works, for example:
 
-## Projects Featured
+```bash
+npx serve .
+# or
+python -m http.server 8000
+```
 
-1. **Inforato** - E-commerce mobile application
-2. **TaskForge** - Productivity and project management app
-3. **LocateLost** - Missing children reunification app
+Use a server rather than opening `index.html` directly, because the 404 page and manifest use root-relative paths.
+
+## Common tasks
+
+**Update the resume.** Put the PDF in `assets/resume/` and update `RESUME_CONFIG.filename` at the top of `assets/js/main.js`.
+
+**Write a blog post.**
+
+```bash
+scripts/create-blog-post.sh "Post Title" "post-slug" "flutter"
+```
+
+Then fill in the generated `blog/post-slug.html`, add a card to `blog/index.html` and add the URL to `sitemap.xml`.
+
+**Change the colours.** Edit the tokens in `:root` at the top of `assets/css/style.css`.
+
+**Deploy.** Push to `main`. GitHub Pages publishes automatically.
+
+More detail is in [docs/project_description.md](docs/project_description.md).
 
 ## Contact
 
-Feel free to reach out for collaboration opportunities!
-
 - Email: zulfiqaralam651@gmail.com
 - GitHub: [@ZulfiqarAlam18](https://github.com/ZulfiqarAlam18)
-- LinkedIn: [Zulfiqar Alam](https://www.linkedin.com/in/zulfiqar-alam-b27a84232)
+- LinkedIn: [Zulfiqar Alam](https://linkedin.com/in/zulfiqar-alam)
 
----
-
-© 2025 Zulfiqar Alam. All rights reserved.
+© Zulfiqar Alam. All rights reserved.

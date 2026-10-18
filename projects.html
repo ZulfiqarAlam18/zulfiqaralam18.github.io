@@ -7,7 +7,7 @@
     <title>Projects | Zulfiqar Alam</title>
     <meta
       name="description"
-      content="Flutter apps, backends and web tools built by Zulfiqar Alam, including four apps live on Google Play."
+      content="Flutter mobile apps by Zulfiqar Alam, including four live on Google Play, plus a few web and AI side projects."
     />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Zulfiqar Alam" />
@@ -16,7 +16,7 @@
     <meta property="og:title" content="Projects | Zulfiqar Alam" />
     <meta
       property="og:description"
-      content="Flutter apps, backends and web tools, including four apps live on Google Play."
+      content="Flutter mobile apps, four live on Google Play, plus web and AI side projects."
     />
     <meta
       property="og:url"
@@ -32,12 +32,11 @@
       document.documentElement.classList.add("js");
     </script>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <link
@@ -46,8 +45,8 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/profile/headshot.jpeg" />
-    <link rel="apple-touch-icon" href="assets/images/profile/headshot.jpeg" />
+    <link rel="icon" href="assets/images/icons/favicon-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon.png" />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
@@ -61,7 +60,7 @@
             <a href="index.html#experience">Experience</a>
             <a href="index.html#skills">Skills</a>
             <a href="projects.html" class="active">Projects</a>
-            <a href="index.html#blog">Blog</a>
+            <a href="blog/index.html">Blog</a>
             <a href="index.html#contact">Contact</a>
             <a
               href="assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf"
@@ -84,7 +83,7 @@
           <a href="index.html#experience">Experience</a>
           <a href="index.html#skills">Skills</a>
           <a href="projects.html">Projects</a>
-          <a href="index.html#blog">Blog</a>
+          <a href="blog/index.html">Blog</a>
           <a href="index.html#contact">Contact</a>
           <a
             href="assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf"
@@ -104,8 +103,8 @@
             <span class="section-label mono">~/projects $ ls -la</span>
             <h1 class="section-title" data-scramble>All Projects</h1>
             <p class="section-subtitle">
-              Mobile apps, backends and web tools. Apps marked live are
-              published on Google Play.
+              Flutter mobile applications first, plus a few web and AI side
+              projects. Projects marked live are published on Google Play.
             </p>
           </div>
 
@@ -125,461 +124,409 @@
           </div>
 
           <div class="projects-grid" id="projectGrid" data-stagger>
-            <!-- Ascender Online -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="live mobile"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/education-lms.jpeg"
-                  alt="Ascender Online education app"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">com.ascenders.online</span>
                 <span class="badge-live mono">live</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Freelance · Mobile + backend</p>
+              <div class="feature-body">
                 <h3 itemprop="name">Ascender Online</h3>
+                <p class="feature-sub mono">Freelance · Mobile + backend</p>
                 <p itemprop="description">
-                  Education platform covering admissions, courses with protected
-                  video, quizzes with PDF results, a campus map and push
-                  notifications. I handled API integration, notifications, the
-                  Play Store release and GitHub Actions CI/CD, and coordinated
-                  the Flutter and backend developers.
+                  Education platform covering admissions, protected video courses,
+                  quizzes with PDF results and campus navigation. Owned API integration,
+                  push notifications, the GitHub Actions CI/CD pipeline and the Play
+                  Store release, and coordinated delivery across the Flutter and backend
+                  developers.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>Node.js</span
-                  ><span>PostgreSQL</span><span>AWS</span
-                  ><span>GitHub Actions</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>ScreenUtil</span>
+                  <span>Firebase</span>
+                  <span>flutter_map</span>
+                  <span>GitHub Actions</span>
                 </div>
-                <div class="project-links">
+                <div class="feature-links">
                   <a
                     href="https://play.google.com/store/apps/details?id=com.ascenders.online"
-                    class="project-link"
-                    itemprop="url"
-                    rel="noopener noreferrer"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    itemprop="url"
                     ><i class="fab fa-google-play"></i> Google Play</a
                   >
-                  <a
-                    href="case-studies/ascender-online.md"
-                    class="project-link"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                  <a href="case-study.html?p=ascender-online"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- IMAT -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="live mobile"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/education-lms.jpeg"
-                  alt="IMAT e-learning app"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">com.imatpro.app</span>
                 <span class="badge-live mono">live</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Freelance · Flutter lead</p>
+              <div class="feature-body">
                 <h3 itemprop="name">IMAT — E-learning App</h3>
+                <p class="feature-sub mono">Freelance · Flutter lead</p>
                 <p itemprop="description">
-                  Course discovery, paid enrollment through Stripe, video
-                  lessons, quizzes and progress tracking, built in clean
-                  architecture layers. I led the Flutter side: UI, GetX state,
-                  REST integration, Stripe payments and the Play Store release.
+                  E-learning app for course discovery, paid enrollment, video lessons,
+                  quizzes and progress tracking, structured on clean architecture. Led
+                  the Flutter implementation: responsive UI, GetX state management, REST
+                  integration, Stripe payments and the Play Store release.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>Dio</span
-                  ><span>Stripe</span><span>Node.js</span
-                  ><span>PostgreSQL</span><span>AWS</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>Clean Architecture</span>
+                  <span>Dio</span>
+                  <span>Stripe</span>
                 </div>
-                <div class="project-links">
+                <div class="feature-links">
                   <a
                     href="https://play.google.com/store/apps/details?id=com.imatpro.app"
-                    class="project-link"
-                    itemprop="url"
-                    rel="noopener noreferrer"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    itemprop="url"
                     ><i class="fab fa-google-play"></i> Google Play</a
                   >
-                  <a
-                    href="case-studies/imat.md"
-                    class="project-link"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                  <a href="case-study.html?p=imat"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- ScanLite -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="live mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/scanlite.webp"
-                  alt="ScanLite document scanner app"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">com.zulfi.scanlite</span>
                 <span class="badge-live mono">live</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Solo build · Flutter + FastAPI</p>
+              <div class="feature-body">
                 <h3 itemprop="name">ScanLite — Scanner, OCR &amp; Converter</h3>
+                <p class="feature-sub mono">Solo build · Flutter + FastAPI</p>
                 <p itemprop="description">
-                  Multi-page scanning with ML Kit, image filters, PDF output,
-                  OCR in English and Urdu, and a FastAPI service for
-                  Office-to-PDF, PDF-to-Word/Excel/PPT and merging.
+                  Document scanner with multi-page capture, image filters, PDF export
+                  and English/Urdu OCR, backed by a FastAPI service for Office-to-PDF,
+                  PDF-to-Word/Excel/PowerPoint and PDF merging. Designed and built end
+                  to end.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>Provider</span><span>Hive</span
-                  ><span>ML Kit</span><span>FastAPI</span
-                  ><span>Tesseract</span>
+                  <span>Flutter</span>
+                  <span>Provider</span>
+                  <span>Hive</span>
+                  <span>ML Kit</span>
+                  <span>OCR</span>
+                  <span>FastAPI</span>
                 </div>
-                <div class="project-links">
+                <div class="feature-links">
                   <a
                     href="https://play.google.com/store/apps/details?id=com.zulfi.scanlite"
-                    class="project-link"
-                    itemprop="url"
-                    rel="noopener noreferrer"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    itemprop="url"
                     ><i class="fab fa-google-play"></i> Google Play</a
                   >
-                  <a
-                    href="case-studies/scanlite.md"
-                    class="project-link"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                  <a href="case-study.html?p=scanlite"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- Routinely -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="live mobile"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/productivity.jpg"
-                  alt="Routinely habit tracker app"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">com.zulfi.routinely</span>
                 <span class="badge-live mono">live</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Solo build · Offline-first</p>
+              <div class="feature-body">
                 <h3 itemprop="name">Routinely — Habits &amp; Todos</h3>
+                <p class="feature-sub mono">Solo build · Offline-first</p>
                 <p itemprop="description">
-                  Habit cycles (weekly/monthly), streaks, achievements and a
-                  todo manager with priorities and reminders. Includes charts,
-                  CSV/PDF export and JSON backup and restore.
+                  Offline-first habit tracker and task manager with weekly and monthly
+                  habit cycles, streaks, reminders, analytics charts, CSV/PDF export and
+                  JSON backup and restore. Designed and built end to end.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>SQLite</span
-                  ><span>Local Notifications</span><span>fl_chart</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>SQLite</span>
+                  <span>Local Notifications</span>
+                  <span>fl_chart</span>
                 </div>
-                <div class="project-links">
+                <div class="feature-links">
                   <a
                     href="https://play.google.com/store/apps/details?id=com.zulfi.routinely"
-                    class="project-link"
-                    itemprop="url"
-                    rel="noopener noreferrer"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    itemprop="url"
                     ><i class="fab fa-google-play"></i> Google Play</a
                   >
-                  <a
-                    href="case-studies/routinely.md"
-                    class="project-link"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                  <a href="case-study.html?p=routinely"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- LocateLost -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/locatelost.jpeg"
-                  alt="LocateLost missing children reunification app"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">~/locatelost</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Final year project · Team lead</p>
+              <div class="feature-body">
                 <h3 itemprop="name">LocateLost — Missing Children Platform</h3>
+                <p class="feature-sub mono">Final year project · Team lead</p>
                 <p itemprop="description">
-                  Multi-role platform for parents, finders and police to report
-                  cases, upload images and track status, with an OpenCV
-                  face-matching pipeline behind the API. I built the Flutter UI
-                  and state management and led the team.
+                  Multi-role platform connecting parents, finders and police to report
+                  missing children, share images and track case status, with an OpenCV
+                  face-matching pipeline behind the API. Led the team and built the
+                  Flutter UI and state management.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>Node.js</span
-                  ><span>PostgreSQL</span><span>Redis</span
-                  ><span>AWS Cognito</span><span>OpenCV</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>ScreenUtil</span>
+                  <span>Dio</span>
+                  <span>AWS Cognito</span>
+                  <span>OpenCV (API)</span>
                 </div>
-                <div class="project-links">
-                  <a
-                    href="case-studies/locatelost.md"
-                    class="project-link"
-                    itemprop="url"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                <div class="feature-links">
+                  <a href="case-study.html?p=locatelost"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- Inforato -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/inforato.webp"
-                  alt="Inforato e-commerce app"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">~/inforato</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">E-commerce · Flutter lead</p>
+              <div class="feature-body">
                 <h3 itemprop="name">Inforato — E-commerce with AI Try-On</h3>
+                <p class="feature-sub mono">E-commerce · Flutter lead</p>
                 <p itemprop="description">
-                  Shopping app with an AI virtual fitting room, catalog, cart,
-                  wishlist, checkout and a vendor portal. I built the Flutter
-                  UI, integrated the APIs and deployed the backend on EC2.
+                  E-commerce app with an AI virtual fitting room, product catalog, cart,
+                  wishlist, checkout and a vendor portal. Built the Flutter UI,
+                  integrated the REST APIs and deployed the backend on AWS EC2.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>Node.js</span
-                  ><span>PostgreSQL</span><span>AWS</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>ScreenUtil</span>
+                  <span>Video Player</span>
+                  <span>REST APIs</span>
+                  <span>AWS Cognito</span>
                 </div>
-                <div class="project-links">
-                  <a
-                    href="case-studies/inforato.md"
-                    class="project-link"
-                    itemprop="url"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                <div class="feature-links">
+                  <a href="case-study.html?p=inforato"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- Cropix -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/cropix.jpeg"
-                  alt="Cropix crop disease detection app"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">~/cropix</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Collaborative · AI integration</p>
+              <div class="feature-body">
                 <h3 itemprop="name">Cropix — Crop Disease Detection</h3>
+                <p class="feature-sub mono">Collaborative · AI integration</p>
                 <p itemprop="description">
-                  Leaf-image disease prediction with confidence scores and
-                  treatment advice, plus a community feed. The app posts images
-                  to a FastAPI endpoint running a TensorFlow model. I built the
-                  Flutter UI and deployed the backend on EC2.
+                  Crop disease detection from leaf images, with confidence scores,
+                  treatment guidance and a community feed. Images are analysed by a
+                  FastAPI service running a TensorFlow model. Built the Flutter UI and
+                  deployed the backend on AWS EC2.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>FastAPI</span
-                  ><span>TensorFlow</span><span>PostgreSQL</span
-                  ><span>AWS</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>Image Picker</span>
+                  <span>Amplify</span>
+                  <span>AWS Cognito</span>
+                  <span>TensorFlow (API)</span>
                 </div>
-                <div class="project-links">
-                  <a
-                    href="case-studies/cropix.md"
-                    class="project-link"
-                    itemprop="url"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                <div class="feature-links">
+                  <a href="case-study.html?p=cropix"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- Personal AI Agent -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="web mobile ai"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/ai-assistant.jpeg"
-                  alt="Personal AI job assistant"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">~/personal-ai-assistant</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Web + mobile · RAG</p>
+              <div class="feature-body">
                 <h3 itemprop="name">Personal AI Job Assistant</h3>
+                <p class="feature-sub mono">Side project · Flutter + web · RAG</p>
                 <p itemprop="description">
-                  Assistant that stores personal context as embeddings, retrieves
-                  the relevant parts with vector search and generates consistent
-                  answers. React web app and Flutter app share one backend.
+                  Context-aware assistant that stores personal data as embeddings,
+                  retrieves relevant context through vector search and generates
+                  consistent, personalised responses. A React web app and a Flutter app
+                  share one Node.js backend.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>React</span><span>Node.js</span
-                  ><span>PostgreSQL</span><span>pgvector</span><span>RAG</span>
+                  <span>Flutter</span>
+                  <span>React</span>
+                  <span>Node.js</span>
+                  <span>PostgreSQL</span>
+                  <span>pgvector</span>
+                  <span>RAG</span>
                 </div>
-                <div class="project-links">
-                  <a
-                    href="case-studies/personal-ai-assistant.md"
-                    class="project-link"
-                    itemprop="url"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                <div class="feature-links">
+                  <a href="case-study.html?p=personal-ai-assistant"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- Job Form Autofill -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="web"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/productivity.jpg"
-                  alt="Job Form Autofill Helper extension"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">~/job-form-autofill-helper</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Chrome extension · Manifest V3</p>
+              <div class="feature-body">
                 <h3 itemprop="name">Job Form Autofill Helper</h3>
+                <p class="feature-sub mono">Side project · Chrome extension</p>
                 <p itemprop="description">
-                  Stores a profile locally and fills job forms by matching
-                  labels, placeholders, IDs and ARIA hints. Inline suggestions,
-                  keyboard shortcuts and one-command full-page fill.
+                  Privacy-first Chrome extension that keeps the user profile in local
+                  storage and fills job applications by matching labels, placeholders,
+                  IDs and ARIA attributes. Supports inline suggestions, keyboard
+                  shortcuts and full-page autofill.
                 </p>
                 <div class="project-tech">
-                  <span>JavaScript</span><span>Chrome APIs</span
-                  ><span>Manifest V3</span><span>chrome.storage</span>
+                  <span>JavaScript</span>
+                  <span>Chrome APIs</span>
+                  <span>Manifest V3</span>
+                  <span>chrome.storage</span>
                 </div>
-                <div class="project-links">
-                  <a
-                    href="case-studies/job-form-autofill-helper.md"
-                    class="project-link"
-                    itemprop="url"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                <div class="feature-links">
+                  <a href="case-study.html?p=job-form-autofill-helper"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- Privacy hub -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="web"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/projects/privacy-hub.jpeg"
-                  alt="Zulfi Apps privacy and support hub"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">~/privacy-support-hub</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Static site · Compliance</p>
+              <div class="feature-body">
                 <h3 itemprop="name">Zulfi Apps — Privacy &amp; Support Hub</h3>
+                <p class="feature-sub mono">Support site for my apps · Compliance</p>
                 <p itemprop="description">
-                  One place for the privacy policies, account deletion pages and
-                  support docs of my Play Store apps, with a folder per app.
+                  Central site hosting privacy policies, account-deletion pages and
+                  support documentation for each published app, meeting Google Play's
+                  privacy and data-deletion requirements.
                 </p>
                 <div class="project-tech">
-                  <span>HTML</span><span>CSS</span><span>JavaScript</span
-                  ><span>GitHub Pages</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>GitHub Pages</span>
                 </div>
-                <div class="project-links">
-                  <a
-                    href="case-studies/privacy-support-hub.md"
-                    class="project-link"
-                    itemprop="url"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                <div class="feature-links">
+                  <a href="case-study.html?p=privacy-support-hub"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>
 
-            <!-- Portfolio -->
             <article
-              class="project-card"
+              class="feature-card"
               data-tags="web"
               itemscope
               itemtype="https://schema.org/SoftwareApplication"
             >
-              <div class="project-image">
-                <img
-                  src="assets/images/profile/headshot.jpeg"
-                  alt="Zulfiqar Alam portfolio website"
-                  itemprop="image"
-                  loading="lazy"
-                />
+              <div class="feature-top">
+                <span class="window-dots"><i></i><i></i><i></i></span>
+                <span class="pkg mono">~/portfolio-website</span>
               </div>
-              <div class="project-details">
-                <p class="project-kind mono">Static site · This website</p>
+              <div class="feature-body">
                 <h3 itemprop="name">Portfolio &amp; Blog</h3>
+                <p class="feature-sub mono">Static site · This website</p>
                 <p itemprop="description">
-                  This site. Hand-written HTML, CSS and vanilla JS with JSON-LD,
-                  Open Graph, a sitemap and a Bash script for new blog posts,
-                  hosted on GitHub Pages.
+                  This website: hand-written HTML, CSS and JavaScript with no framework
+                  or build step, structured data for search, and a scripted blog
+                  workflow, hosted on GitHub Pages.
                 </p>
                 <div class="project-tech">
-                  <span>HTML</span><span>CSS</span><span>JavaScript</span
-                  ><span>SEO</span><span>GitHub Pages</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>SEO</span>
+                  <span>GitHub Pages</span>
                 </div>
-                <div class="project-links">
-                  <a
-                    href="case-studies/portfolio-website.md"
-                    class="project-link"
-                    itemprop="url"
-                    >Details <i class="fas fa-arrow-right"></i
-                  ></a>
+                <div class="feature-links">
+                  <a href="case-study.html?p=portfolio-website"
+                    ><i class="fas fa-file-lines"></i> Case study</a
+                  >
                 </div>
               </div>
             </article>

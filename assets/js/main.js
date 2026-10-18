@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     onScroll();
 
     // ---------- Cursor spotlight on cards (mouse / pen only) ----------
-    const SPOTLIGHT = '.feature-card, .project-card, .skill-card, .timeline-card, .info-card, .post-row, .blog-card, .coffee-card';
+    const SPOTLIGHT = '.feature-card, .skill-card, .timeline-card, .info-card, .blog-card, .coffee-card';
     if (window.matchMedia('(hover: hover)').matches && !prefersReducedMotion) {
         document.querySelectorAll(SPOTLIGHT).forEach(function(card) {
             card.classList.add('spotlight');
@@ -103,10 +103,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ---------- Project filters (projects.html) ----------
+    // ---------- Card filters (projects page and blog page) ----------
     document.querySelectorAll('[data-filter-target]').forEach(function(bar) {
         const grid = document.getElementById(bar.getAttribute('data-filter-target'));
         const counter = document.getElementById(bar.getAttribute('data-filter-count'));
+        const empty = document.getElementById(bar.getAttribute('data-filter-empty'));
         if (!grid) return;
         const cards = grid.querySelectorAll('[data-tags]');
         const buttons = bar.querySelectorAll('[data-filter]');
@@ -126,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             if (counter) counter.textContent = shown + ' of ' + cards.length + ' projects';
+            if (empty) empty.hidden = shown > 0;
         }
 
         buttons.forEach(function(btn) {
@@ -233,6 +235,8 @@ document.addEventListener('DOMContentLoaded', function() {
         el.dataset.scrambled = 'true';
 
         const finalText = el.textContent;
+        // Screen readers get the real heading, not the random symbols mid-animation
+        el.setAttribute('aria-label', finalText);
         const totalFrames = 22;
         let frame = 0;
 

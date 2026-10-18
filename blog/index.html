@@ -30,10 +30,12 @@
     <link rel="canonical" href="https://zulfiqaralam18.github.io/blog/">
     
     <!-- External Resources -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -67,7 +69,7 @@
             <a href="../#experience">Experience</a>
             <a href="../#skills">Skills</a>
             <a href="../projects.html">Projects</a>
-            <a href="../#blog">Blog</a>
+            <a href="index.html">Blog</a>
             <a href="../#contact">Contact</a>
             <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
           </div>
@@ -80,7 +82,7 @@
           <a href="../#experience">Experience</a>
           <a href="../#skills">Skills</a>
           <a href="../projects.html">Projects</a>
-          <a href="../#blog">Blog</a>
+          <a href="index.html">Blog</a>
           <a href="../#contact">Contact</a>
           <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
         </div>
@@ -103,19 +105,20 @@
     <!-- Blog Posts Section -->
     <section class="blog-section" style="padding-top: 80px;">
         <div class="container">
-            <div class="blog-filters">
+            <!-- Category filters: remove "hidden" once there are posts in more than one category -->
+            <div class="blog-filters" hidden>
                 <h3>Filter by Category:</h3>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All Posts</button>
-                    <button class="filter-btn" data-filter="flutter">Flutter</button>
-                    <button class="filter-btn" data-filter="react-native">React Native</button>
-                    <button class="filter-btn" data-filter="tutorial">Tutorials</button>
-                    <button class="filter-btn" data-filter="tips">Tips & Tricks</button>
+                <div class="filter-buttons" data-filter-target="blogGrid" data-filter-empty="blogEmpty">
+                    <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All Posts</button>
+                    <button class="filter-btn" type="button" data-filter="flutter" aria-pressed="false">Flutter</button>
+                    <button class="filter-btn" type="button" data-filter="react-native" aria-pressed="false">React Native</button>
+                    <button class="filter-btn" type="button" data-filter="tutorial" aria-pressed="false">Tutorials</button>
+                    <button class="filter-btn" type="button" data-filter="tips" aria-pressed="false">Tips & Tricks</button>
                 </div>
             </div>
 
             <div class="blog-grid" id="blogGrid">
-                <article class="blog-card" data-category="flutter react-native" itemscope itemtype="https://schema.org/BlogPosting">
+                <article class="blog-card" data-tags="flutter react-native" itemscope itemtype="https://schema.org/BlogPosting">
                     <div class="blog-content">
                         <div class="blog-meta">
                             <span class="blog-category">Mobile Development</span>
@@ -159,29 +162,5 @@
     </footer>
 
     <script src="../assets/js/main.js"></script>
-    <script>
-        // Blog filtering functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const blogGrid = document.getElementById('blogGrid');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Update active button
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const filter = this.getAttribute('data-filter');
-                    let shown = 0;
-                    blogGrid.querySelectorAll('.blog-card').forEach(card => {
-                        const match = filter === 'all' || (card.dataset.category || '').split(' ').includes(filter);
-                        card.hidden = !match;
-                        if (match) shown++;
-                    });
-                    document.getElementById('blogEmpty').hidden = shown > 0;
-                });
-            });
-        });
-    </script>
 </body>
 </html>

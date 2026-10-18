@@ -16,11 +16,11 @@
     />
     <meta
       name="description"
-      content="Software Engineer building production Flutter apps with Node.js and AWS backends. Mobile Application Developer at Sapphire Consulting Service, Karachi. Four apps live on Google Play."
+      content="Flutter Mobile Application Engineer building production cross-platform apps. Mobile Application Developer at Sapphire Consulting Service, Karachi, with four apps live on Google Play."
     />
     <meta
       name="keywords"
-      content="Zulfiqar Alam, Flutter Developer, Mobile Application Engineer, Software Engineer, Dart, GetX, BLoC, Provider, Node.js, Express, AWS, Cognito, PostgreSQL, Firebase, Karachi, Pakistan"
+      content="Zulfiqar Alam, Flutter Developer, Mobile Application Engineer, Mobile App Developer, Dart, GetX, BLoC, Provider, Clean Architecture, Cross-platform Apps, Firebase, Google Play, Karachi, Pakistan"
     />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
@@ -35,7 +35,7 @@
     />
     <meta
       property="og:description"
-      content="Production Flutter apps with Node.js and AWS backends. Four apps live on Google Play."
+      content="Flutter Mobile Application Engineer. Production cross-platform apps, four live on Google Play."
     />
     <meta
       property="og:image"
@@ -53,7 +53,7 @@
     />
     <meta
       property="twitter:description"
-      content="Production Flutter apps with Node.js and AWS backends. Four apps live on Google Play."
+      content="Flutter Mobile Application Engineer. Production cross-platform apps, four live on Google Play."
     />
     <meta
       property="twitter:image"
@@ -77,20 +77,19 @@
     <link rel="manifest" href="/manifest.json" />
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/profile/headshot.jpeg" />
-    <link rel="apple-touch-icon" href="assets/images/profile/headshot.jpeg" />
+    <link rel="icon" href="assets/images/icons/favicon-64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon.png" />
 
     <script>
       document.documentElement.classList.add("js");
     </script>
 
     <!-- External Resources -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- JSON-LD Structured Data -->
@@ -100,7 +99,7 @@
         "@type": "Person",
         "name": "Zulfiqar Alam",
         "jobTitle": "Mobile Application Developer",
-        "description": "Software Engineer and Flutter Mobile Application Engineer building production apps with Node.js and AWS backends.",
+        "description": "Flutter Mobile Application Engineer building production cross-platform mobile apps, with working knowledge of backend APIs.",
         "url": "https://zulfiqaralam18.github.io/",
         "image": "https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg",
         "worksFor": {
@@ -124,17 +123,17 @@
         "knowsAbout": [
           "Flutter",
           "Dart",
+          "Mobile Application Development",
+          "Cross-platform Development",
           "GetX",
           "BLoC",
           "Provider",
-          "Node.js",
-          "Express.js",
-          "RESTful APIs",
-          "AWS EC2",
-          "AWS S3",
-          "AWS Cognito",
+          "Clean Architecture",
+          "SQLite",
+          "Hive",
           "Firebase",
-          "PostgreSQL",
+          "RESTful API Integration",
+          "Google Play Release Management",
           "GitHub Actions"
         ],
         "address": {
@@ -177,7 +176,7 @@
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#blog">Blog</a>
+            <a href="blog/index.html">Blog</a>
             <a href="#contact">Contact</a>
             <a
               href="assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf"
@@ -200,7 +199,7 @@
           <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
-          <a href="#blog">Blog</a>
+          <a href="blog/index.html">Blog</a>
           <a href="#contact">Contact</a>
           <a
             href="assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf"
@@ -225,7 +224,7 @@
             <div class="hero-identity">
               <div class="hero-avatar">
                 <img
-                  src="assets/images/profile/headshot.jpeg"
+                  src="assets/images/profile/headshot-320.webp"
                   alt="Portrait of Zulfiqar Alam"
                   width="152"
                   height="152"
@@ -243,14 +242,15 @@
               <span class="prompt">~$</span>
               <span
                 class="typed"
-                data-typed='["Flutter Mobile Application Engineer","Clean architecture · CI/CD","Flutter + Node.js + AWS"]'
+                data-typed='["Flutter Mobile Application Engineer","Cross-platform apps in Flutter &amp; Dart","Clean architecture · Play Store releases"]'
                 >Flutter Mobile Application Engineer</span
               ><span class="caret" aria-hidden="true"></span>
             </p>
             <p class="hero-lead">
-              I build and ship Flutter apps backed by Node.js APIs and AWS. Four
-              of them are live on Google Play, from e-learning platforms with
-              Stripe payments to an offline-first habit tracker.
+              Mobile application engineer specializing in Flutter. I build and ship
+              production apps end to end, from clean architecture and state
+              management to API integration and Play Store release, with four apps
+              currently live on Google Play.
             </p>
             <div class="hero-buttons">
               <a href="#projects" class="btn">View Projects</a>
@@ -292,7 +292,7 @@
                 <span class="line"> </span>
                 <span class="line">  <span class="tk-key">final</span> stack = [</span>
                 <span class="line">    <span class="tk-str">'Flutter'</span>, <span class="tk-str">'Dart'</span>, <span class="tk-str">'GetX'</span>, <span class="tk-str">'BLoC'</span>,</span>
-                <span class="line">    <span class="tk-str">'Node.js'</span>, <span class="tk-str">'PostgreSQL'</span>, <span class="tk-str">'AWS'</span>,</span>
+                <span class="line">    <span class="tk-str">'Provider'</span>, <span class="tk-str">'Hive'</span>, <span class="tk-str">'Firebase'</span>,</span>
                 <span class="line">  ];</span>
                 <span class="line"> </span>
                 <span class="line">  <span class="tk-meta">@override</span></span>
@@ -326,25 +326,30 @@
           <div class="about-content">
             <div class="about-image reveal">
               <img
-                src="assets/images/profile/portrait.jpeg"
-                alt="Zulfiqar Alam"
+                src="assets/images/profile/portrait-680.webp"
+                alt="Zulfiqar Alam in a grey waistcoat and tie"
+                width="680"
+                height="907"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="about-text reveal">
               <p>
-                I'm a Software Engineer focused on Flutter. At Sapphire
-                Consulting Service I build responsive UI and API-driven
-                features, track down production issues and support releases.
-                Before that I spent two years freelancing, taking client apps
-                from the first screen to a Play Store release.
+                I'm a mobile application engineer specializing in Flutter and Dart. At
+                Sapphire Consulting Service, I develop and maintain Flutter
+                applications, building responsive, API-driven features and supporting
+                production releases. Before that, I spent two years as a freelance
+                mobile developer, delivering client apps from first design to Play
+                Store release and ongoing maintenance.
               </p>
               <p>
-                Most of my work pairs a Flutter front end with a Node.js/Express
-                or FastAPI backend on AWS (EC2, S3, Cognito). I've led small
-                teams of Flutter and backend developers, set up CI/CD with
-                GitHub Actions, and integrated payments, push notifications and
-                ML inference into shipped apps.
+                My focus is the mobile side: app architecture, state management with
+                GetX, BLoC and Provider, offline-first storage and release management
+                on Google Play. I also have a working knowledge of backend
+                fundamentals (REST APIs with Node.js, Firebase and core AWS services),
+                which helps me integrate APIs cleanly and work closely with backend
+                developers.
               </p>
               <div class="stats" data-stagger>
                 <div class="stat">
@@ -388,11 +393,12 @@
                 <p class="timeline-org">Sapphire Consulting Service</p>
                 <ul>
                   <li>
-                    Develop and maintain Flutter applications with responsive
-                    UI and API-driven features.
+                    Develop and maintain Flutter applications, implementing responsive UI
+                    and REST API-driven features.
                   </li>
                   <li>
-                    Troubleshoot production issues and support release cycles.
+                    Diagnose and resolve production issues, and support release cycles
+                    through to deployment.
                   </li>
                 </ul>
                 <div class="project-tech">
@@ -403,30 +409,35 @@
             <li class="timeline-item reveal">
               <div class="timeline-date mono">2 years</div>
               <div class="timeline-card">
-                <h3>Freelance Software Engineer / Flutter Developer</h3>
+                <h3>Freelance Flutter Developer</h3>
                 <p class="timeline-org">Self-employed · Remote</p>
                 <ul>
                   <li>
-                    Built and delivered mobile apps end to end: development, API
-                    integration, testing, deployment and maintenance.
+                    Delivered Flutter applications end to end, covering UI development,
+                    state management, API integration, testing, Play Store deployment and
+                    maintenance.
                   </li>
                   <li>
-                    Shipped Ascender Online and IMAT to Google Play, including
-                    Stripe payments and Firebase push notifications.
+                    Shipped Ascender Online and IMAT to Google Play, integrating Stripe
+                    payments and Firebase push notifications.
                   </li>
                   <li>
-                    Coordinated Flutter and backend developers day to day and
-                    set up GitHub Actions CI/CD for release builds.
+                    Coordinated day-to-day delivery between the Flutter and backend
+                    developers, and set up GitHub Actions CI/CD for release builds.
                   </li>
                   <li>
-                    Deployed Node.js/Express and FastAPI backends on AWS EC2
-                    with S3 storage and Cognito auth.
+                    Integrated apps with Node.js and FastAPI backends, including AWS
+                    Cognito authentication and S3 media storage, and handled backend
+                    deployment on EC2 when projects needed it.
                   </li>
                 </ul>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>Node.js</span
-                  ><span>PostgreSQL</span><span>AWS</span
-                  ><span>GitHub Actions</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>Firebase</span>
+                  <span>Stripe</span>
+                  <span>REST APIs</span>
+                  <span>GitHub Actions</span>
                 </div>
               </div>
             </li>
@@ -447,68 +458,86 @@
                 <i class="fas fa-mobile-screen-button skill-icon"></i>
                 <span class="mono skill-file">mobile.dart</span>
               </div>
-              <h3>Mobile</h3>
+              <h3>Mobile Development</h3>
               <div class="skill-tags">
-                <span>Flutter</span><span>Dart</span><span>WebRTC</span
-                ><span>Google Maps</span><span>ML Kit</span
-                ><span>Play Store releases</span>
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>Responsive UI</span>
+                <span>Google Maps</span>
+                <span>WebRTC</span>
+                <span>ML Kit</span>
               </div>
             </article>
             <article class="skill-card">
               <div class="skill-head">
                 <i class="fas fa-diagram-project skill-icon"></i>
-                <span class="mono skill-file">state.dart</span>
+                <span class="mono skill-file">architecture.dart</span>
               </div>
               <h3>State &amp; Architecture</h3>
               <div class="skill-tags">
-                <span>BLoC</span><span>GetX</span><span>Provider</span
-                ><span>Clean Architecture</span><span>Offline-first</span>
-              </div>
-            </article>
-            <article class="skill-card">
-              <div class="skill-head">
-                <i class="fas fa-server skill-icon"></i>
-                <span class="mono skill-file">api.js</span>
-              </div>
-              <h3>Backend &amp; APIs</h3>
-              <div class="skill-tags">
-                <span>Node.js</span><span>Express.js</span
-                ><span>RESTful APIs</span><span>FastAPI</span
-                ><span>NestJS (exposure)</span>
-              </div>
-            </article>
-            <article class="skill-card">
-              <div class="skill-head">
-                <i class="fas fa-cloud skill-icon"></i>
-                <span class="mono skill-file">cloud.yml</span>
-              </div>
-              <h3>Cloud</h3>
-              <div class="skill-tags">
-                <span>AWS EC2</span><span>AWS S3</span><span>AWS Cognito</span
-                ><span>Firebase</span><span>Supabase</span>
+                <span>BLoC</span>
+                <span>GetX</span>
+                <span>Provider</span>
+                <span>Clean Architecture</span>
+                <span>Offline-first</span>
               </div>
             </article>
             <article class="skill-card">
               <div class="skill-head">
                 <i class="fas fa-database skill-icon"></i>
-                <span class="mono skill-file">schema.sql</span>
+                <span class="mono skill-file">storage.dart</span>
               </div>
-              <h3>Databases</h3>
+              <h3>On-Device Data</h3>
               <div class="skill-tags">
-                <span>PostgreSQL</span><span>SQLite</span><span>Floor</span
-                ><span>Hive</span><span>MongoDB</span><span>Redis</span>
+                <span>SQLite</span>
+                <span>Floor</span>
+                <span>Hive</span>
+                <span>SharedPreferences</span>
+                <span>Secure token storage</span>
               </div>
             </article>
             <article class="skill-card">
               <div class="skill-head">
-                <i class="fas fa-screwdriver-wrench skill-icon"></i>
-                <span class="mono skill-file">tools.sh</span>
+                <i class="fas fa-plug skill-icon"></i>
+                <span class="mono skill-file">services.dart</span>
               </div>
-              <h3>Tools &amp; Languages</h3>
+              <h3>Integrations</h3>
               <div class="skill-tags">
-                <span>Git &amp; GitHub</span><span>GitHub Actions</span
-                ><span>Appium</span><span>Android Studio</span
-                ><span>JavaScript</span><span>Java / C++ (basics)</span>
+                <span>REST APIs (Dio / HTTP)</span>
+                <span>Firebase</span>
+                <span>Push &amp; local notifications</span>
+                <span>Stripe payments</span>
+                <span>AWS Cognito auth</span>
+              </div>
+            </article>
+            <article class="skill-card">
+              <div class="skill-head">
+                <i class="fas fa-rocket skill-icon"></i>
+                <span class="mono skill-file">release.yml</span>
+              </div>
+              <h3>Release &amp; Quality</h3>
+              <div class="skill-tags">
+                <span>Play Store releases</span>
+                <span>GitHub Actions CI/CD</span>
+                <span>Appium testing</span>
+                <span>Android Studio</span>
+                <span>Git &amp; GitHub</span>
+              </div>
+            </article>
+            <article class="skill-card">
+              <div class="skill-head">
+                <i class="fas fa-server skill-icon"></i>
+                <span class="mono skill-file">backend.basics</span>
+              </div>
+              <h3>Backend Fundamentals</h3>
+              <p class="skill-note">Working knowledge</p>
+              <div class="skill-tags">
+                <span>Node.js / Express</span>
+                <span>FastAPI</span>
+                <span>PostgreSQL</span>
+                <span>MongoDB</span>
+                <span>AWS EC2 &amp; S3</span>
+                <span>Supabase</span>
               </div>
             </article>
           </div>
@@ -522,8 +551,8 @@
             <span class="section-label mono">// projects</span>
             <h2 class="section-title" data-scramble>Featured Projects</h2>
             <p class="section-subtitle">
-              Apps that are live on Google Play. The full list, including web
-              and AI work, is on the projects page.
+              Production apps currently live on Google Play. Web, AI and earlier
+              work are on the projects page.
             </p>
           </div>
 
@@ -542,16 +571,19 @@
                 <h3 itemprop="name">Ascender Online</h3>
                 <p class="feature-sub mono">Education platform · Freelance</p>
                 <p itemprop="description">
-                  Admissions, courses with protected video, quizzes with PDF
-                  results, a campus map and push notifications. I handled API
-                  integration, notifications, the Play Store release and the
-                  GitHub Actions pipeline, and coordinated the Flutter and
-                  backend developers.
+                  Education platform covering admissions, protected video courses,
+                  quizzes with PDF results and campus navigation. Owned API integration,
+                  push notifications, the GitHub Actions CI/CD pipeline and the Play
+                  Store release, and coordinated delivery across the Flutter and backend
+                  developers.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>Node.js</span
-                  ><span>PostgreSQL</span><span>AWS</span
-                  ><span>GitHub Actions</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>ScreenUtil</span>
+                  <span>Firebase</span>
+                  <span>flutter_map</span>
+                  <span>GitHub Actions</span>
                 </div>
                 <div class="feature-links">
                   <a
@@ -561,8 +593,8 @@
                     itemprop="url"
                     ><i class="fab fa-google-play"></i> Google Play</a
                   >
-                  <a href="case-studies/ascender-online.md"
-                    ><i class="fas fa-file-lines"></i> Details</a
+                  <a href="case-study.html?p=ascender-online"
+                    ><i class="fas fa-file-lines"></i> Case study</a
                   >
                 </div>
               </div>
@@ -582,14 +614,17 @@
                 <h3 itemprop="name">IMAT</h3>
                 <p class="feature-sub mono">E-learning app · Freelance</p>
                 <p itemprop="description">
-                  Course browsing, paid enrollment through Stripe, video
-                  lessons, quizzes and progress tracking, organised in clean
-                  architecture layers. I led the Flutter side: UI, GetX state,
-                  REST integration, Stripe payments and the Play Store release.
+                  E-learning app for course discovery, paid enrollment, video lessons,
+                  quizzes and progress tracking, structured on clean architecture. Led
+                  the Flutter implementation: responsive UI, GetX state management, REST
+                  integration, Stripe payments and the Play Store release.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>GetX</span><span>Dio</span
-                  ><span>Stripe</span><span>Node.js</span><span>AWS</span>
+                  <span>Flutter</span>
+                  <span>GetX</span>
+                  <span>Clean Architecture</span>
+                  <span>Dio</span>
+                  <span>Stripe</span>
                 </div>
                 <div class="feature-links">
                   <a
@@ -599,8 +634,8 @@
                     itemprop="url"
                     ><i class="fab fa-google-play"></i> Google Play</a
                   >
-                  <a href="case-studies/imat.md"
-                    ><i class="fas fa-file-lines"></i> Details</a
+                  <a href="case-study.html?p=imat"
+                    ><i class="fas fa-file-lines"></i> Case study</a
                   >
                 </div>
               </div>
@@ -620,13 +655,18 @@
                 <h3 itemprop="name">ScanLite</h3>
                 <p class="feature-sub mono">Scanner + OCR · Solo build</p>
                 <p itemprop="description">
-                  Multi-page scanning with ML Kit, image filters, OCR in English
-                  and Urdu, and a FastAPI service for Office-to-PDF conversion,
-                  PDF-to-Word/Excel and merging.
+                  Document scanner with multi-page capture, image filters, PDF export
+                  and English/Urdu OCR, backed by a FastAPI service for Office-to-PDF,
+                  PDF-to-Word/Excel/PowerPoint and PDF merging. Designed and built end
+                  to end.
                 </p>
                 <div class="project-tech">
-                  <span>Flutter</span><span>Provider</span><span>Hive</span
-                  ><span>ML Kit</span><span>FastAPI</span><span>Tesseract</span>
+                  <span>Flutter</span>
+                  <span>Provider</span>
+                  <span>Hive</span>
+                  <span>ML Kit</span>
+                  <span>OCR</span>
+                  <span>FastAPI</span>
                 </div>
                 <div class="feature-links">
                   <a
@@ -637,8 +677,8 @@
                     ><i class="fab fa-google-play"></i> Google Play</a
                   >
                   <a
-                    href="case-studies/scanlite.md"
-                    ><i class="fas fa-file-lines"></i> Details</a
+                    href="case-study.html?p=scanlite"
+                    ><i class="fas fa-file-lines"></i> Case study</a
                   >
                 </div>
               </div>
@@ -658,9 +698,9 @@
                 <h3 itemprop="name">Routinely</h3>
                 <p class="feature-sub mono">Habits + todos · Solo build</p>
                 <p itemprop="description">
-                  Offline-first habit tracker and todo manager with weekly and
-                  monthly habit cycles, streaks, reminders, charts, CSV/PDF
-                  export and JSON backup.
+                  Offline-first habit tracker and task manager with weekly and monthly
+                  habit cycles, streaks, reminders, analytics charts, CSV/PDF export and
+                  JSON backup and restore. Designed and built end to end.
                 </p>
                 <div class="project-tech">
                   <span>Flutter</span><span>GetX</span><span>SQLite</span
@@ -674,8 +714,8 @@
                     itemprop="url"
                     ><i class="fab fa-google-play"></i> Google Play</a
                   >
-                  <a href="case-studies/routinely.md"
-                    ><i class="fas fa-file-lines"></i> Details</a
+                  <a href="case-study.html?p=routinely"
+                    ><i class="fas fa-file-lines"></i> Case study</a
                   >
                 </div>
               </div>
@@ -715,8 +755,8 @@
               <h3>Certification</h3>
               <p class="info-main">AWS Cloud Technical Essentials</p>
               <p>
-                Coursera. IAM, Cognito, EC2, VPC, security and basic cloud
-                infrastructure design.
+                Coursera. Covers IAM, Amazon Cognito, EC2, VPC networking, security
+                and core cloud infrastructure design.
               </p>
             </article>
             <article class="info-card">
@@ -733,41 +773,6 @@
         </div>
       </section>
 
-      <!-- Blog Section -->
-      <section id="blog" class="blog-section">
-        <div class="container">
-          <div class="section-head reveal">
-            <span class="section-label mono">// writing</span>
-            <h2 class="section-title" data-scramble>Blog</h2>
-          </div>
-          <a
-            class="post-row reveal"
-            href="blog/flutter-vs-react-native-2025.html"
-            itemscope
-            itemtype="https://schema.org/BlogPosting"
-          >
-            <time class="mono" datetime="2025-07-15" itemprop="datePublished"
-              >2025-07-15</time
-            >
-            <div>
-              <h3 itemprop="headline">
-                Flutter vs React Native: Complete Comparison 2025
-              </h3>
-              <p itemprop="description">
-                Performance, developer experience and when to pick each
-                framework for your next cross-platform app.
-              </p>
-            </div>
-            <span class="post-meta mono">5 min read <i class="fas fa-arrow-right"></i></span>
-          </a>
-          <div class="text-center reveal">
-            <a href="blog/index.html" class="btn-outline"
-              ><i class="fas fa-pen-nib"></i> All Posts</a
-            >
-          </div>
-        </div>
-      </section>
-
       <!-- Contact Section -->
       <section id="contact" class="contact-section">
         <div class="container">
@@ -777,10 +782,10 @@
           </div>
           <div class="contact-container">
             <div class="contact-info reveal">
-              <h3>Have a Flutter project or a role in mind?</h3>
+              <h3>Have a role or project in mind?</h3>
               <p>
-                I'm open to full-time roles, freelance work and collaborations.
-                Send a message and I'll reply by email.
+                I'm open to mobile engineering roles, freelance Flutter projects and
+                collaborations. Send a message and I'll get back to you by email.
               </p>
               <div class="contact-details">
                 <div class="contact-item">
@@ -859,6 +864,7 @@
                 />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
                 <div class="form-group">
                   <label for="name" class="mono">--name</label>
                   <input

@@ -58,10 +58,12 @@ cat > "blog/${SLUG}.html" << EOF
     <link rel="canonical" href="https://zulfiqaralam18.github.io/blog/${SLUG}.html">
     
     <!-- External Resources -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -103,7 +105,7 @@ cat > "blog/${SLUG}.html" << EOF
             <a href="../#experience">Experience</a>
             <a href="../#skills">Skills</a>
             <a href="../projects.html">Projects</a>
-            <a href="../#blog">Blog</a>
+            <a href="index.html">Blog</a>
             <a href="../#contact">Contact</a>
             <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
           </div>
@@ -116,7 +118,7 @@ cat > "blog/${SLUG}.html" << EOF
           <a href="../#experience">Experience</a>
           <a href="../#skills">Skills</a>
           <a href="../projects.html">Projects</a>
-          <a href="../#blog">Blog</a>
+          <a href="index.html">Blog</a>
           <a href="../#contact">Contact</a>
           <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
         </div>

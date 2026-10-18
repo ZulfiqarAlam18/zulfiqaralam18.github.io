@@ -5,7 +5,7 @@
 // 3. Optionally update `downloadAs` (the name shown when saving)
 // ============================================================
 const RESUME_CONFIG = {
-    filename:   'assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf', // <-- update this line with new PDF name
+    filename:   'assets/resume/Zulfiqar_Alam-Mobile_Application_Engineer.pdf', // <-- update this line with new PDF name
     downloadAs: 'Zulfiqar_Alam_Resume.pdf'                // name used when visitor downloads the file
 };
 // ============================================================

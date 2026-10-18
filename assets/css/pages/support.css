@@ -1,0 +1,199 @@
+/* pages/support.css — Buy me a coffee page. */
+
+/* ---------- Buy me a coffee ---------- */
+.coffee-page {
+    padding-top: var(--nav-h);
+}
+
+.coffee-hero {
+    position: relative;
+    padding: 90px 0 70px;
+    background:
+        radial-gradient(800px 400px at 0% 0%, rgba(230, 237, 243, 0.04), transparent 60%),
+        var(--bg);
+}
+
+.coffee-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+}
+
+.coffee-content h1 {
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 800;
+}
+
+.coffee-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.coffee-lead {
+    color: var(--text-muted);
+    font-size: var(--fs-base);
+    margin-bottom: 28px;
+}
+
+.coffee-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.coffee-steps {
+    display: grid;
+    gap: 12px;
+}
+
+.coffee-step {
+    display: flex;
+    gap: 16px;
+    padding: 16px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.coffee-step h3 {
+    font-size: var(--fs-base);
+    margin-bottom: 4px;
+}
+
+.coffee-step p {
+    color: var(--text-muted);
+    font-size: var(--fs-base);
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+}
+
+.coffee-cards {
+    display: grid;
+    gap: 18px;
+    align-content: start;
+}
+
+.coffee-card {
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.coffee-highlight {
+    border-color: var(--accent-line);
+    box-shadow: 0 24px 50px -28px rgba(0, 0, 0, 0.9);
+}
+
+.coffee-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.coffee-card-head h2 {
+    font-size: var(--fs-2xl);
+    margin-bottom: 0;
+}
+
+.coffee-card-head i {
+    font-size: var(--fs-2xl);
+    color: var(--accent);
+}
+
+.coffee-tag {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+}
+
+.coffee-details {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.coffee-label {
+    display: block;
+    font-size: var(--fs-sm);
+    color: var(--text-dim);
+    margin-bottom: 2px;
+}
+
+.coffee-value {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-base);
+    font-weight: 500;
+    color: var(--text);
+}
+
+.copy-field .coffee-value {
+    display: inline-block;
+}
+
+.coffee-note {
+    color: var(--text-dim);
+    font-size: var(--fs-md);
+}
+
+.coffee-list {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.coffee-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 12px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.coffee-footer {
+    padding: 40px 0 90px;
+    background: var(--bg);
+}
+
+.coffee-footer-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.coffee-footer-card h3 {
+    margin-bottom: 6px;
+}
+
+.coffee-footer-card p {
+    color: var(--text-muted);
+}

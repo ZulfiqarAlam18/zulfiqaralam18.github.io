@@ -1,0 +1,49 @@
+/* pages/not-found.css — 404 page. */
+
+/* ---------- 404 page ---------- */
+.notfound {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: calc(var(--nav-h) + 40px) 0 60px;
+}
+
+.notfound .code-window {
+    width: min(640px, 100%);
+    margin: 0 auto;
+}
+
+.notfound-body {
+    padding: 22px 24px 26px;
+    font-size: var(--fs-md);
+    line-height: 1.9;
+    color: #c9d4df;
+}
+
+.notfound-body #missingPath {
+    word-break: break-all;
+}
+
+.notfound-body .prompt {
+    color: var(--accent);
+}
+
+.notfound-body .err {
+    color: #ff7b72;
+}
+
+.notfound-code {
+    font-size: clamp(4rem, 14vw, 7rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: 6px 0 10px;
+    color: var(--text);
+}
+
+.notfound-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}

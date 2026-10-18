@@ -43,7 +43,7 @@ cat > "blog/${SLUG}.html" << EOF
     <meta property="og:url" content="https://zulfiqaralam18.github.io/blog/${SLUG}.html">
     <meta property="og:title" content="${TITLE}">
     <meta property="og:description" content="[Add your post description here]">
-    <meta property="og:image" content="https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg">
+    <meta property="og:image" content="https://zulfiqaralam18.github.io/assets/images/profile/original/headshot.jpeg">
     <meta property="article:author" content="Zulfiqar Alam">
     <meta property="article:published_time" content="${DATETIME}">
     
@@ -52,7 +52,7 @@ cat > "blog/${SLUG}.html" << EOF
     <meta property="twitter:url" content="https://zulfiqaralam18.github.io/blog/${SLUG}.html">
     <meta property="twitter:title" content="${TITLE}">
     <meta property="twitter:description" content="[Add your post description here]">
-    <meta property="twitter:image" content="https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg">
+    <meta property="twitter:image" content="https://zulfiqaralam18.github.io/assets/images/profile/original/headshot.jpeg">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://zulfiqaralam18.github.io/blog/${SLUG}.html">
@@ -60,7 +60,13 @@ cat > "blog/${SLUG}.html" << EOF
     <!-- External Resources -->
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Styles: shared base, page-specific, then motion + responsive last -->
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/layout.css" />
+    <link rel="stylesheet" href="../assets/css/components.css" />
+    <link rel="stylesheet" href="../assets/css/pages/blog.css" />
+    <link rel="stylesheet" href="../assets/css/motion.css" />
+    <link rel="stylesheet" href="../assets/css/responsive.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
@@ -72,7 +78,7 @@ cat > "blog/${SLUG}.html" << EOF
       "@type": "BlogPosting",
       "headline": "${TITLE}",
       "description": "[Add your post description here]",
-      "image": "https://zulfiqaralam18.github.io/assets/images/profile/headshot.jpeg",
+      "image": "https://zulfiqaralam18.github.io/assets/images/profile/original/headshot.jpeg",
       "author": {
         "@type": "Person",
         "name": "Zulfiqar Alam",
@@ -107,7 +113,7 @@ cat > "blog/${SLUG}.html" << EOF
             <a href="../projects.html">Projects</a>
             <a href="index.html">Blog</a>
             <a href="../#contact">Contact</a>
-            <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
+            <a href="../assets/resume/Zulfiqar_Alam-Mobile_Application_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
           </div>
           <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
             <i class="fas fa-bars"></i>
@@ -120,7 +126,7 @@ cat > "blog/${SLUG}.html" << EOF
           <a href="../projects.html">Projects</a>
           <a href="index.html">Blog</a>
           <a href="../#contact">Contact</a>
-          <a href="../assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
+          <a href="../assets/resume/Zulfiqar_Alam-Mobile_Application_Engineer.pdf" target="_blank" class="resume-link" data-resume-link="../"><i class="fas fa-file-pdf"></i> Resume</a>
         </div>
       </div>
     </nav>
@@ -137,7 +143,7 @@ cat > "blog/${SLUG}.html" << EOF
             </div>
             
             <div class="blog-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <img src="../assets/images/profile/headshot.jpeg" alt="Zulfiqar Alam" class="author-avatar">
+                <img src="../assets/images/profile/headshot-320.webp" alt="Zulfiqar Alam" class="author-avatar">
                 <div class="author-info">
                     <span class="author-name" itemprop="name">Zulfiqar Alam</span>
                     <span class="author-title">Mobile App Developer</span>

@@ -1,0 +1,216 @@
+/* base.css — Design tokens, reset, base elements and section rhythm. Loaded first on every page. */
+
+:root {
+    --bg: #0b0e13;
+    --bg-alt: #10151c;
+    --surface: #12171f;
+    --surface-2: #171d27;
+    --border: #212936;
+    --border-strong: #2d3746;
+    --text: #e6edf3;
+    --text-muted: #9aa6b2;
+    --text-dim: #808d9b; /* 5.3:1 on cards (WCAG AA) */
+    --accent: #e6edf3;
+    --accent-2: #9aa6b2;
+    --accent-soft: rgba(230, 237, 243, 0.1);
+    --accent-line: rgba(230, 237, 243, 0.35);
+    --status: #22c55e; /* only for live / available signals */
+
+    /* syntax colours */
+    --tk-key: #c792ea;
+    --tk-type: #82aaff;
+    --tk-str: #c3e88d;
+    --tk-num: #f78c6c;
+    --tk-fn: #61d6c3;
+    --tk-com: #7a889c;
+    --tk-meta: #ffcb6b;
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 20px 40px -24px rgba(0, 0, 0, 0.7);
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --nav-h: 72px;
+    --section-pad: 64px;
+
+    /* type scale: every font-size in this file uses one of these */
+    --fs-xs: 0.75rem;    /* 12px  meta, badges, file names */
+    --fs-sm: 0.8125rem;  /* 13px  mono labels, tags */
+    --fs-md: 0.875rem;   /* 14px  secondary text, buttons */
+    --fs-base: 1rem;     /* 16px  body */
+    --fs-lg: 1.125rem;   /* 18px  lead text, card titles */
+    --fs-xl: 1.25rem;    /* 20px  sub-headings */
+    --fs-2xl: 1.5rem;    /* 24px  card headings */
+    --fs-3xl: 2rem;      /* 32px  page headings */
+}
+
+/* ---------- Reset & base ---------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 16px); /* generic anchors */
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+::selection {
+    background: #e6edf3;
+    color: #0b0e13;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.mono {
+    font-family: var(--font-mono);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* Spam trap for the contact form: off-screen, never seen or focused by people */
+.honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 16px;
+    z-index: 2000;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: #0b0e13;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+/* ---------- Headings ---------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+/* ---------- Section heads ---------- */
+.section-head {
+    margin-bottom: 32px;
+}
+
+.section-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-md);
+    color: var(--text-dim);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    margin-bottom: 0;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.section-title::after {
+    content: '';
+    flex: 1;
+    max-width: 280px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-strong), transparent);
+}
+
+.section-subtitle {
+    margin-top: 14px;
+    color: var(--text-muted);
+    max-width: 620px;
+    font-size: var(--fs-base);
+}
+
+/* ---------- Generic section spacing ---------- */
+.about-section,
+.experience-section,
+.skills-section,
+.projects-section,
+.background-section,
+.blog-section,
+.contact-section {
+    padding: var(--section-pad) 0;
+    position: relative;
+}
+
+.about-section,
+.skills-section,
+.background-section,
+.contact-section {
+    background: var(--bg);
+}
+
+.experience-section,
+.projects-section,
+.blog-section {
+    background: var(--bg-alt);
+    border-top: 1px solid rgba(255, 255, 255, 0.025);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.025);
+}
+
+/* Menu links jump to a section: cancel the generic offset and the
+   section's own top padding so the heading sits just under the navbar */
+section[id] {
+    scroll-margin-top: calc(var(--nav-h) + 40px - var(--section-pad) - (var(--nav-h) + 16px));
+}

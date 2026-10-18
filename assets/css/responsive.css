@@ -1,0 +1,209 @@
+/* responsive.css — Breakpoints (1024 / 860 / 640 px) and reduced-motion overrides. Loaded last on every page. */
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .hero-text {
+        max-width: 680px;
+    }
+
+    .code-body {
+        min-height: 0;
+    }
+
+    .skills-grid,
+    .background-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        grid-template-columns: 260px 1fr;
+        gap: 44px;
+    }
+
+    .coffee-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 860px) {
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: grid;
+        place-items: center;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+
+    .feature-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        max-width: 300px;
+    }
+
+    .timeline::before {
+        left: 5px;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding-left: 30px;
+    }
+
+    .timeline-item::before {
+        left: 0;
+        top: 6px;
+    }
+
+    .timeline-date {
+        padding: 0;
+        text-align: left;
+    }
+
+    .coffee-footer-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: calc(var(--nav-h) + 40px) 0 70px;
+    }
+
+    .scroll-hint,
+    .hide-sm {
+        display: none;
+    }
+
+    .to-top {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .hero-identity {
+        gap: 16px;
+    }
+
+    .hero-avatar {
+        width: 124px;
+        height: 124px;
+    }
+
+    .hero-identity h1 {
+        font-size: clamp(2.1rem, 9vw, 2.8rem);
+        white-space: normal;
+    }
+
+    .avatar-status {
+        width: 18px;
+        height: 18px;
+        right: 9px;
+        bottom: 9px;
+    }
+
+    .code-body {
+        font-size: var(--fs-xs);
+    }
+
+    .code-body .line::before {
+        width: 2.6em;
+        padding-right: 0.9em;
+    }
+
+    :root {
+        --section-pad: 48px;
+    }
+
+    .section-head {
+        margin-bottom: 34px;
+    }
+
+    .section-title::after {
+        display: none;
+    }
+
+    .skills-grid,
+    .background-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .stat {
+        padding: 14px 12px;
+    }
+
+    .stat-num,
+    .stat-suffix {
+        font-size: var(--fs-2xl);
+    }
+
+    .stat-label {
+        font-size: var(--fs-xs);
+    }
+
+    .hero-buttons .btn,
+    .hero-buttons .btn-outline {
+        flex: 1;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-sep,
+    .footer-built {
+        display: none;
+    }
+
+    .coffee-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js .reveal,
+    .js [data-stagger] > * {
+        opacity: 1;
+        transform: none;
+    }
+}

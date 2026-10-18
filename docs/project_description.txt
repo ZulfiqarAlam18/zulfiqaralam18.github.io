@@ -31,7 +31,7 @@ Site copy follows the writing rules in user_context.txt: value-focused, concise,
 -------------
 
 - HTML5 — hand-written pages, semantic markup, schema.org microdata (itemscope / itemprop).
-- CSS3 — one shared stylesheet (assets/css/style.css) built on CSS custom properties (design tokens in :root): colours, syntax-highlight colours, fonts, radius, easing. Monochrome dark theme: #0b0e13 background, off-white accent (--accent: #e6edf3) with grey secondary tones, and labels styled like grey code comments. The only colour outside the code window is --status: #22c55e, reserved for "live" / "available" signals (avatar dot, live badges, build tick). To re-theme, change --accent, --accent-2, --accent-soft, --accent-line and --status in :root. Typography uses an 8-step scale (--fs-xs 12px … --fs-3xl 32px) — every font-size in the file is one of these tokens, and nothing is smaller than 12px. Small grey text (--text-dim: #808d9b) is 5.3:1 on cards, passing WCAG AA. Section rhythm comes from --section-pad (64px desktop, 48px phones), giving about 130px between sections. Grid/Flexbox layouts, breakpoints at 1024 / 860 / 640 px, and a prefers-reduced-motion block that disables animation.
+- CSS3 — purpose-based stylesheets in assets/css/ (see Section 3) built on CSS custom properties (design tokens in :root): colours, syntax-highlight colours, fonts, radius, easing. Monochrome dark theme: #0b0e13 background, off-white accent (--accent: #e6edf3) with grey secondary tones, and labels styled like grey code comments. The only colour outside the code window is --status: #22c55e, reserved for "live" / "available" signals (avatar dot, live badges, build tick). To re-theme, change --accent, --accent-2, --accent-soft, --accent-line and --status in :root. Typography uses an 8-step scale (--fs-xs 12px … --fs-3xl 32px) — every font-size uses one of these tokens, and nothing is smaller than 12px. Small grey text (--text-dim: #808d9b) is 5.3:1 on cards, passing WCAG AA. Section rhythm comes from --section-pad (64px desktop, 48px phones), giving about 130px between sections. Grid/Flexbox layouts, breakpoints at 1024 / 860 / 640 px, and a prefers-reduced-motion block that disables animation.
 - Vanilla JavaScript — one shared script (assets/js/main.js), no frameworks, no bundler.
 - Fonts — Google Fonts Inter (text) and JetBrains Mono (code-style labels, logo, tags), loaded with a <link> in each page head (not a CSS @import, which delays rendering).
 - Icons — Font Awesome 6.5.1 from cdnjs on every page, loaded non-blocking (rel="preload" + onload, with a <noscript> fallback) so it never delays first paint.
@@ -39,7 +39,7 @@ Site copy follows the writing rules in user_context.txt: value-focused, concise,
 - Forms — FormSubmit (formsubmit.co) delivers contact-form messages by email; the script posts to its /ajax/ endpoint. A hidden _honey field (FormSubmit's honeypot) filters spam bots.
 - Analytics / SEO — Google Analytics 4 (gtag, ID G-4YV1D6R3HX), Google Search Console verification meta tag, JSON-LD, Open Graph, Twitter Cards, sitemap.xml, robots.txt.
 - PWA metadata — manifest.json.
-- Tooling — a Bash script (scripts/create-blog-post.sh) that generates new blog post HTML from a template.
+- Tooling — dependency-free scripts in scripts/: serve.js (local preview), check-links.js (link/image verification), make-images.js (regenerates web images and icons from the originals via headless Chrome) and create-blog-post.sh (new post from a template).
 - Hosting — GitHub Pages. Push to main and the site updates.
 
 There is no package.json, no dependencies to install and no build step. Only 3 animations run continuously (the avatar's status pulse and two blinking cursors); everything else plays once.
@@ -52,41 +52,45 @@ There is no package.json, no dependencies to install and no build step. Only 3 a
 Page URLs are unchanged from the original site (/, /projects.html, /buy-me-a-coffee.html, /blog/...), so existing links and search rankings keep working. Everything that isn't a page lives in a purpose-named folder.
 
 zulfiqaralam18.github.io/
-├── index.html                  Home page (hero, about, experience, skills, featured projects, background, contact)
-├── projects.html               "All Projects" page — 11 code-window cards with filters
-├── case-study.html             Renders any case study: case-study.html?p=<slug>
-├── buy-me-a-coffee.html        Support page (Easypaisa, SadaPay, NayaPay, JazzCash)
-├── 404.html                    Terminal-style "page not found" (GitHub Pages serves it for any missing URL)
+├── index.html                    Home: hero, about, experience, skills, projects, contact
+├── projects.html                 All projects, with filters
+├── case-study.html               Renders case-studies/<slug>.md as a page (?p=<slug>)
+├── buy-me-a-coffee.html          Support page
+├── 404.html                      Not-found page (served by GitHub Pages)
 ├── blog/
-│   ├── index.html              Blog listing (category filters hidden until there are more posts)
-│   └── flutter-vs-react-native-2025.html   The one published post
+│   ├── index.html                Blog listing
+│   └── .html                    Posts
 ├── assets/
-│   ├── css/style.css           Design tokens (:root) and all styles, shared by every page
-│   ├── js/main.js              All interactions and animations, plus RESUME_CONFIG
-│   ├── js/case-study.js        Loads and renders case-studies/<slug>.md (slug allow-list)
+│   ├── css/
+│   │   ├── base.css              Design tokens (:root), reset, headings, section rhythm
+│   │   ├── layout.css            Navigation bar and footer
+│   │   ├── components.css        Buttons, code window, cards, tag chips, filters, copy buttons, toasts
+│   │   ├── motion.css            Scroll-reveal helpers and shared keyframes
+│   │   ├── responsive.css        Breakpoints and reduced-motion overrides (always loaded last)
+│   │   ├── sections/hero.css     Hero (home page and blog index)
+│   │   └── pages/                home, projects, blog, case-study, support, not-found
+│   ├── js/
+│   │   ├── main.js               Shared interactions, animations, RESUME_CONFIG
+│   │   └── case-study.js         Case-study loader
 │   ├── images/
-│   │   ├── profile/            headshot-320.webp (hero), portrait-680.webp (About),
-│   │   │                       headshot.jpeg / portrait.jpeg (full-size originals; headshot.jpeg = social cards)
-│   │   └── icons/              favicon-64.png, apple-touch-icon.png, icon-192.jpg, icon-512.jpg
-│   └── resume/                 Zulfiqar_Alam-Mobile_App_Engineer.pdf
-├── case-studies/               Long-form project write-ups, rendered by case-study.html
-│   ├── ascender-online.md      ├── imat.md          ├── scanlite.md
-│   ├── routinely.md            ├── locatelost.md    (~1,600 lines, full FYP documentation)
-│   ├── inforato.md             ├── cropix.md        ├── personal-ai-assistant.md
-│   ├── job-form-autofill-helper.md                  ├── privacy-support-hub.md
-│   └── portfolio-website.md    (this site)
-├── docs/
-│   ├── project_description.md  This file
-│   └── project_description.txt Plain-text copy
+│   │   ├── profile/              headshot-320.webp, portrait-680.webp (served)
+│   │   │   └── original/         Full-size originals (headshot.jpeg is also the social-share image)
+│   │   └── icons/                Favicon, Apple touch icon, app icons
+│   └── resume/                   Resume PDF
+├── case-studies/                 Project write-ups in Markdown
+├── docs/                         Maintainer documentation
 ├── scripts/
-│   └── create-blog-post.sh     Blog post generator (runs from any folder)
-├── README.md                   Public readme shown on GitHub
-├── manifest.json               Web app manifest
-├── robots.txt                  Crawler rules + sitemap location
-├── sitemap.xml                 XML sitemap
-├── .gitignore                  Ignores .env, user_context.txt, OS and editor files
-├── user_context.txt            Private resume/application notes — source of truth for profile content (git-ignored)
-└── .env                        Local environment file (git-ignored, not used by the site)
+│   ├── serve.js                  Local preview server
+│   ├── check-links.js            Verifies every local link and image path
+│   ├── make-images.js            Regenerates web images and icons from the originals
+│   └── create-blog-post.sh       New blog post from a template
+├── manifest.json, robots.txt, sitemap.xml
+└── README.md
+├── .gitignore                    Ignores .env, user_context.txt, OS and editor files
+├── user_context.txt              Private resume notes — source of truth for profile content (git-ignored)
+└── .env                          Local environment file (git-ignored, not used by the site)
+
+Stylesheet load order. Every page links base.css, layout.css, components.css, then its page files (sections/hero.css and/or pages/<page>.css), then motion.css and responsive.css. Shared UI (tag chips, filter buttons, copy buttons, project cards) lives in components.css so any page can use it; page files only hold styles used on that page. The split was verified by comparing the computed style of all 3,804 elements across 7 pages at 1440 / 900 / 520 px before and after — identical.
 
 ------------------------------------------------------------
 
@@ -129,7 +133,7 @@ Article comparing Flutter and React Native: performance, development experience,
 
 4.6 `404.html` — Not found
 
-A code window showing ~$ open <missing path>, a red "route not found" error, a large 404 and links to Home, Projects and Contact. It uses root-absolute paths (/assets/css/style.css) because GitHub Pages serves it at whatever URL was requested, and it is marked noindex.
+A code window showing ~$ open <missing path>, a red "route not found" error, a large 404 and links to Home, Projects and Contact. It uses root-absolute paths (/assets/css/...) because GitHub Pages serves it at whatever URL was requested, and it is marked noindex.
 
 4.7 `case-study.html` — Case study
 
@@ -146,7 +150,7 @@ Every page (except 404) uses the same navbar: About, Experience, Skills, Project
 
 Shared by every page; every feature checks that its elements exist, so pages without them are unaffected.
 
-- Resume config — RESUME_CONFIG at the top holds filename (assets/resume/Zulfiqar_Alam-Mobile_App_Engineer.pdf) and downloadAs. Every [data-resume-link] gets its href from it; [data-resume-download] also gets the download name.
+- Resume config — RESUME_CONFIG at the top holds filename (assets/resume/Zulfiqar_Alam-Mobile_Application_Engineer.pdf) and downloadAs. Every [data-resume-link] gets its href from it; [data-resume-download] also gets the download name.
 - Footer year — fills [data-year] with the current year.
 - Mobile menu — toggles #mobileMenu, swaps the icon, sets aria-expanded, closes when a link is tapped.
 - Navbar — adds .scrolled after 20 px of scroll.
@@ -175,7 +179,7 @@ Shared by every page; every feature checks that its elements exist, so pages wit
 - Open Graph and Twitter Card tags with the profile image.
 - JSON-LD Person on the home page (job title, worksFor Sapphire Consulting Service, alumniOf MUET, AWS credential, skills, location, contact, GitHub / LinkedIn / X); BlogPosting on the post.
 - Microdata on project cards.
-- sitemap.xml (lastmod 2026-10-18) lists the home page and its anchors, projects.html, the 11 case-study URLs, the blog index, the published post and the coffee page.
+- sitemap.xml (lastmod 2026-10-18) lists the home page, projects.html, the 11 case-study URLs, the blog index, the published post and the coffee page.
 - robots.txt allows everything and points to the sitemap.
 - Google Search Console verification meta tag and Google Analytics 4.
 
@@ -234,14 +238,21 @@ Deploy
 - git add, git commit, git push origin main. GitHub Pages publishes within a minute or two.
 
 Run locally
-- Serve the folder (e.g. npx serve .), don't open files directly: case studies are fetched over HTTP and the 404 page uses root-relative paths.
+- Run node scripts/serve.js and open http://localhost:8080. Don't open files directly: case studies are fetched over HTTP and the 404 page uses root-relative paths.
+
+Before pushing
+- Run node scripts/check-links.js (exits with an error if any local link or image path is broken).
+- After a deploy, a hard refresh (Ctrl + Shift + R) avoids mixing a cached old stylesheet with new HTML (GitHub Pages caches files for 10 minutes).
+
+Replace the profile photos
+- Put new originals in assets/images/profile/original/ (same names) and run node scripts/make-images.js.
 
 ------------------------------------------------------------
 
 9. KNOWN ISSUES AND GAPS (AS OF 18 OCT 2026)
 --------------------------------------------
 
-Fixed in the 18 Oct 2026 update: resume link pointing to the deleted PDF, stray --> in the home <head>, home blog cards linking to non-existent posts and missing images, blog index stuck on "Coming Soon", fake newsletter form, dead "Next Post" link, projects.html missing from the sitemap, Routinely described as using Hive, JSON-LD alumniOf placeholder, missing Resume link on the projects page, cursor trail, broken parallax selector, null-unsafe menu code, innerHTML in toasts, and outdated "graduate" / "expert" wording. Removed unused files: PORTFOLIO.md (duplicate of the portfolio case study), .htaccess (ignored by GitHub Pages) and blog-guide.md (generic advice; the blog workflow is in Section 8). Restructured into assets/, case-studies/, docs/ and scripts/ with descriptive file names; fixed the previously broken image references (profile_Pic.jpeg, blog1.jpg, blog-default.jpg, manifest icons); rewrote README.md and the portfolio case study. UI/UX + engineering pass: case studies render as formatted pages; stock project photos replaced by code-window cards; blog removed from the home page and its empty filters hidden; WCAG AA contrast for small text and a 12px minimum; 30 font sizes collapsed to an 8-step scale; section spacing tightened; continuous animations cut from 6 to 3; screen-reader fix for scramble headings; dead CSS removed; fonts and icons no longer render-blocking; resized hero/portrait images (221 KB → 16 KB, 114 KB → 67 KB) and dedicated favicon / app icons; contact-form honeypot; one shared filter script for the projects and blog pages.
+Fixed in the 18 Oct 2026 update: resume link pointing to the deleted PDF, stray --> in the home <head>, home blog cards linking to non-existent posts and missing images, blog index stuck on "Coming Soon", fake newsletter form, dead "Next Post" link, projects.html missing from the sitemap, Routinely described as using Hive, JSON-LD alumniOf placeholder, missing Resume link on the projects page, cursor trail, broken parallax selector, null-unsafe menu code, innerHTML in toasts, and outdated "graduate" / "expert" wording. Removed unused files: PORTFOLIO.md (duplicate of the portfolio case study), .htaccess (ignored by GitHub Pages) and blog-guide.md (generic advice; the blog workflow is in Section 8). Restructured into assets/, case-studies/, docs/ and scripts/ with descriptive file names; fixed the previously broken image references (profile_Pic.jpeg, blog1.jpg, blog-default.jpg, manifest icons); rewrote README.md and the portfolio case study. UI/UX + engineering pass: case studies render as formatted pages; stock project photos replaced by code-window cards; blog removed from the home page and its empty filters hidden; WCAG AA contrast for small text and a 12px minimum; 30 font sizes collapsed to an 8-step scale; section spacing tightened; continuous animations cut from 6 to 3; screen-reader fix for scramble headings; dead CSS removed; fonts and icons no longer render-blocking; resized hero/portrait images (221 KB → 16 KB, 114 KB → 67 KB) and dedicated favicon / app icons; contact-form honeypot; one shared filter script for the projects and blog pages. Restructure: the 2,700-line stylesheet split into base / layout / components / motion / responsive plus section and page files (verified identical by computed-style comparison); originals moved to assets/images/profile/original/; blog avatars switched from the 221 KB original to the 16 KB web image; maintainer scripts added to scripts/. Cleanup: removed dead CSS (.text-center, .newsletter-form, .post-row) and the four /#section sitemap entries (search engines ignore URL fragments).
 
 Still open:
 
@@ -285,4 +296,4 @@ Still open:
 
 24 commits on main, starting with "initial commit". In rough order the work covered: footer refactor and UI tweaks → SEO meta tags → blog page → Google Search Console verification → Google Analytics → theme changes → "student" to "graduate" wording → resume added → Person JSON-LD update → Buy Me a Coffee page → projects page → more projects → project-specific images (latest commit 7076a03).
 
-Not yet committed: the 18 Oct 2026 profile update and redesign (index.html, projects.html, 404.html, blog/, buy-me-a-coffee.html, sitemap.xml), the folder restructure (assets/, case-studies/, docs/, scripts/, staged as git renames), the new resume PDF, the rewritten README and these description files.
+Pushed up to commit 669c516 ("Ui Enhanced"). Not yet committed: the stylesheet split, the image-folder move and the new scripts/ tools.

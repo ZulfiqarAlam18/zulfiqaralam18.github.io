@@ -33,13 +33,13 @@ Live: https://zulfiqaralam18.github.io
 ├── index.html, projects.html, buy-me-a-coffee.html, 404.html
 ├── blog/                  posts and the blog index
 ├── assets/
-│   ├── css/style.css      design tokens and all styles
-│   ├── js/main.js         interactions and animations
-│   ├── images/            profile/ and projects/
+│   ├── css/               base, layout, components, motion, responsive + page styles
+│   ├── js/                main.js (interactions), case-study.js (Markdown loader)
+│   ├── images/            profile/ (web-ready + originals) and icons/
 │   └── resume/            downloadable PDF resume
 ├── case-studies/          long-form project write-ups
 ├── docs/                  maintainer documentation
-└── scripts/               blog post generator
+└── scripts/               local server, link checker, image generator, blog post generator
 ```
 
 ## Author

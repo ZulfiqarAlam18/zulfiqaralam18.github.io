@@ -47,3 +47,60 @@
 
 /* assets/js/main.js strips the reveal hooks once the entrance finishes,
    so card hover transitions fall back to their own rules */
+
+/* ---------- Section headings ----------
+   Sequence (~1.3s, finishes before main.js removes the reveal hooks at 1.7s):
+   1. the // label slides in from the left
+   2. each title word slides up from behind its own clipping box, one after another
+   3. the rule beside the title draws left to right
+   Words are wrapped by main.js; without JS or with reduced motion the heading simply shows. */
+.section-title .title-text {
+    display: inline;
+}
+
+.section-title .word {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    /* room for descenders (g, p, y) inside the clipping box */
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+}
+
+.section-title .word-inner {
+    display: inline-block;
+}
+
+/* label: slide in from the left instead of rising */
+.js .section-head[data-stagger] > .section-label {
+    transform: translateX(-16px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+/* title: the block itself stays put; its words do the moving */
+.js .section-head[data-stagger] > .section-title {
+    opacity: 1;
+    transform: none;
+}
+
+.js .section-head[data-stagger] .word-inner {
+    transform: translateY(110%);
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(120ms + var(--wi, 0) * 80ms);
+}
+
+.js .section-head[data-stagger].is-visible > .section-label,
+.js .section-head[data-stagger].is-visible .word-inner {
+    transform: none;
+}
+
+/* rule beside the title draws after the words land */
+.js .section-head[data-stagger] .section-title::after {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s var(--ease) 0.45s;
+}
+
+.js .section-head[data-stagger].is-visible .section-title::after {
+    transform: scaleX(1);
+}

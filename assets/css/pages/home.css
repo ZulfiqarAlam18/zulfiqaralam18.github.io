@@ -449,7 +449,7 @@
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-size: var(--fs-sm);
+    font-size: var(--fs-md);
     font-weight: 500;
     color: var(--accent);
 }

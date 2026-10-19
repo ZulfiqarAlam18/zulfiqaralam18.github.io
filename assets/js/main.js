@@ -185,6 +185,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ---------- Section headings: split titles into words for the masked reveal ----------
+    // <h2>About Me</h2> -> <h2><span class="title-text"><span class="word"><span class="word-inner">About</span></span> …</span></h2>
+    // Each word slides up from behind its own clipping box (CSS in motion.css). The text stays real
+    // text throughout, so screen readers and copy/paste are unaffected.
+    if (!prefersReducedMotion) {
+        document.querySelectorAll('.section-head[data-stagger] .section-title').forEach(function(title) {
+            const words = title.textContent.trim().split(/\s+/);
+            const wrap = document.createElement('span');
+            wrap.className = 'title-text';
+            words.forEach(function(word, i) {
+                const outer = document.createElement('span');
+                outer.className = 'word';
+                const inner = document.createElement('span');
+                inner.className = 'word-inner';
+                inner.style.setProperty('--wi', i);
+                inner.textContent = word;
+                outer.appendChild(inner);
+                wrap.appendChild(outer);
+                if (i < words.length - 1) wrap.appendChild(document.createTextNode(' '));
+            });
+            title.textContent = '';
+            title.appendChild(wrap);
+        });
+    }
+
     // ---------- Scroll reveal + staggered children ----------
     const revealTargets = document.querySelectorAll('.reveal, [data-stagger]');
 
@@ -206,10 +231,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         el.classList.add('is-visible');
-        el.querySelectorAll('[data-scramble]').forEach(scramble);
         el.querySelectorAll('[data-count]').forEach(countUp);
         const lastDelay = el.hasAttribute('data-stagger') ? el.children.length * 90 : 0;
-        setTimeout(function() { settle(el); }, lastDelay + 800);
+        // Section headings run a longer sequence (label, words, underline): let it finish first
+        const duration = el.classList.contains('section-head') ? 1700 : lastDelay + 800;
+        setTimeout(function() { settle(el); }, duration);
     }
 
     if (prefersReducedMotion || !('IntersectionObserver' in window)) {
@@ -225,41 +251,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
         revealTargets.forEach(function(el) { revealObserver.observe(el); });
-    }
-
-    // ---------- Scramble text (headings decode like a terminal) ----------
-    const SCRAMBLE_CHARS = '!<>-_\\/[]{}=+*^?#01';
-
-    function scramble(el) {
-        if (el.dataset.scrambled) return;
-        el.dataset.scrambled = 'true';
-
-        const finalText = el.textContent;
-        // Screen readers get the real heading, not the random symbols mid-animation
-        el.setAttribute('aria-label', finalText);
-        const totalFrames = 22;
-        let frame = 0;
-
-        function tick() {
-            const progress = frame / totalFrames;
-            let out = '';
-            for (let i = 0; i < finalText.length; i++) {
-                const ch = finalText[i];
-                if (ch === ' ' || i / finalText.length < progress) {
-                    out += ch;
-                } else {
-                    out += SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
-                }
-            }
-            el.textContent = out;
-            if (frame < totalFrames) {
-                frame++;
-                setTimeout(tick, 40);
-            } else {
-                el.textContent = finalText;
-            }
-        }
-        tick();
     }
 
     // ---------- Count-up stats ----------

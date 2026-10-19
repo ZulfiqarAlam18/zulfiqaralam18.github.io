@@ -78,7 +78,7 @@ zulfiqaralam18.github.io/
 │   │   └── icons/                Favicon, Apple touch icon, app icons
 │   └── resume/                   Resume PDF
 ├── case-studies/                 Project write-ups in Markdown
-├── docs/                         Maintainer documentation
+├── docs/                         Maintainer documentation (+ images/preview.jpg, the README screenshot)
 ├── scripts/
 │   ├── serve.js                  Local preview server
 │   ├── check-links.js            Verifies every local link and image path

@@ -179,11 +179,6 @@
         text-align: center;
     }
 
-    .footer-sep,
-    .footer-built {
-        display: none;
-    }
-
     .coffee-actions {
         flex-direction: column;
         align-items: stretch;

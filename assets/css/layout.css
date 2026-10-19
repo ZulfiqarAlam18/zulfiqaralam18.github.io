@@ -153,14 +153,6 @@
     gap: 16px;
 }
 
-.footer-sep {
-    margin: 0 8px;
-}
-
-.footer-built {
-    font-size: var(--fs-sm);
-}
-
 .footer-links {
     display: flex;
     gap: 22px;
